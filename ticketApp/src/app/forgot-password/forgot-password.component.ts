@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent {
+  data;
   submit(f){
+    this.data = f;
     console.log(f.value);
   }
 }

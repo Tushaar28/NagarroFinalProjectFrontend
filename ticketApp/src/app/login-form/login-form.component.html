@@ -1,35 +1,51 @@
-<div class="conatiner-fluid">
-  <div class="row">
-    <div class="col-sm-3 col-md-6 col-lg-8">
-      <img src="assets/media/img/background.jpg" id="bkg-img">
-    </div>
-    <div class="col-sm-9 col-md-6 col-lg-4" id="login-form">
-      <form method="POST" #f="ngForm" (ngSubmit)="submit(f)">
-        <div class="form-group">
-          <label for="userName">Username</label><br>
-          <input required ngModel name="userName" #userName="ngModel" id="userName" type="text" class="form-control"
-            width="10">
-          <div class="alert alert-danger" *ngIf="userName.touched && !userName.valid">
-            <div *ngIf="userName.errors.required">Username required</div>
-          </div>
-        </div>
+<div  id="main" style="background-image: url('assets/media/img/back.jpg')">
 
-        <div class="form-group">
-          <label for="password">Password</label><br>
-          <input required ngModel name="password" #password="ngModel" id="password" type="password" class="form-control"
-            width="10">
-          <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
-            <div *ngIf="password.errors.required">Password required</div>
-          </div>
-        </div>
+  <div class="container-fluid " style="margin-top: 200px" >
+      <div class="container card shadow-lg" style="height: 100%; padding:0px"  > 
+          <div class="row no-gutters" >
+              <div class="col-sm-3 col-md-6 col-lg-7">
+                  <div class="container-img" style="width:100%;height:100%;padding:0px">
+                      <img src="assets/media/img/background.jpg" id="bkg-img" class="img-fluid">
+                      <div class="content">
+                          <h5 style="font-weight: 700;">Hey,Glad to see u</h5>
+                          <h6 style="font-weight: 700;">to keep connected please login with your personal info</h6>
+                      </div>
+                  </div>
+              </div>
 
-        <button class="btn btn-primary" id="login-btn">Log in</button>
-      </form>
-      <br><br>
-      <button type="button" class="btn btn-link" id="forgot-btn" onclick="window.location.href='forgot'">Forgot your
-        password?</button>
-      <br><br><br>
-      <p>Don't have an account?<a routerLink="register">Sign Up</a></p>
-    </div>
-  </div>
+              <div class="col-sm-9 col-md-6 col-lg-5" style="background-color: #F7F8FB;" >
+                  <h4 >Log In</h4>
+                 <form  class="mx-auto " method="POST" #f="ngForm" (ngSubmit)="submit(f)">
+                  <div class="form-group " >
+                      <label for="userName" class="label">UserName</label>
+                      <input required ngModel name="userName" #userName="ngModel" id="userName" type="text" class="form-control mx-auto shadow-lg bg-white" placeholder="Username" style="width:80%">
+                      <div id="username-error-label" class="alert alert-danger" *ngIf="userName.touched && !userName.valid">
+                        <div *ngIf="userName.errors.required">Username required</div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="pwd" class="label">Password</label>
+                      <input required ngModel name="password" #password="ngModel" type="password" class="form-control mx-auto  shadow-lg bg-white" placeholder="Password" id="password" style="width: 80%;">
+                      <div id="pwd-error-label" class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                        <div *ngIf="password.errors.required">Password required</div>
+                      </div>
+                    </div>
+                    <div class="form-group"> 
+                      <button class="btn btn-primary mx-auto btn-block shadow-lg  " style="width:80%;background-color:#FA5162" [disabled]="!f.valid">Log In</button>
+                    </div>
+                    <div class="mx-auto"> 
+                      <button type="button" class="btn btn-link btn-block mx-auto" id="forgot-btn" style="font-size: small;" onclick="window.location.href='/forgot'">Forgot your password?</button>
+                    </div>
+                    <div class="mx-auto">
+                      <p style="font-size: smaller;text-align: center;">Don't have an account?<a routerLink = "/register">Sign Up</a></p>
+                    </div>
+                 </form> 
+              </div>
+
+          </div>
+      </div>
+     
+
+</div>    
+
 </div>

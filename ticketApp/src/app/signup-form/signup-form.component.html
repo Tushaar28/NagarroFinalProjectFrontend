@@ -6,7 +6,7 @@
     <div class="col-sm-9 col-md-6 col-lg-4" id="signup-form">
       <br>
       <h3>Register With Us!!!</h3>
-      <form method="POST" action="cnf-reg" #f="ngForm" (ngSubmit)="submit(f)">
+      <form method="POST" action="" #f="ngForm" (ngSubmit)="submit(f)">
         <!--                                             First Name                                         -->
         <div class="form-group">
           <label for="firstName">First Name:<p><span>*</span></p></label>
@@ -113,7 +113,7 @@
         </div>
         <p id="mandatory">All fields marked with asterik (*) are mandatory</p>
         <!--                                           Submit Button                                              -->
-        <button class="btn btn-primary" id="login-btn" [disabled]="!f.valid" onclick="confirm()">Submit</button>
+        <button class="btn btn-primary" id="signup-btn" [disabled]="!f.valid">Submit</button>
       </form>
     </div>
   </div>

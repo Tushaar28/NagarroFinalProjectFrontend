@@ -7,8 +7,9 @@ import { Component, OnInit, NgModule } from '@angular/core';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent {
+  data;
   submit(f){
-    console.log(f.value["userName"]);
-    console.log(f.value["password"])
+    this.data=f;
+    console.log(this.data.value);
   }
 }
