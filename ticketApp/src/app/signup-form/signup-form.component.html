@@ -6,8 +6,8 @@
         <div class="col-sm-9 col-md-6 col-lg-4" id="signup-form">
             <br>
             <h3>Register With Us!!!</h3>
-            <form method="POST" #f="ngForm" (ngSubmit)="submit(f)">
-<!--                                                First Name                                  -->
+            <form method="POST" action="cnf-reg" #f="ngForm" (ngSubmit)="submit(f)">
+<!--                                             First Name                                         -->
                 <div class="form-group">
                     <label for="firstName">First Name:<p><span>*</span></p></label>
                     <input required ngModel name="firstName" #firstName="ngModel" id="firstName" type="text"
@@ -46,7 +46,7 @@
                 <div class="form-group">
                     <label for="email">E-mail:</label>
                     <input required ngModel name="email" #email="ngModel" id="email" type="email" class="form-control"
-                        width="10" pattern=^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$>
+                        width="10" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                     <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
                         <div *ngIf="email.errors.required">Email required</div>
                         <div *ngIf="email.errors.pattern">Invalid Email</div>
@@ -118,7 +118,7 @@
                 </div>
                 <p id="mandatory">All fields marked with asterik (*) are mandatory</p>
 <!--                                           Submit Button                                              -->
-                <button class="btn btn-primary" id="login-btn" [disabled]="!f.valid">Submit</button>
+                <button class="btn btn-primary" id="login-btn" [disabled]="!f.valid" onclick="confirm()">Submit</button>
             </form>
         </div>
     </div>

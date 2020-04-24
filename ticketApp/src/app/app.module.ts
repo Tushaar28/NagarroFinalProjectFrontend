@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { RegCnfComponent } from './reg-cnf/reg-cnf.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    RegCnfComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     FormsModule,
