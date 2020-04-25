@@ -8,6 +8,13 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { RegCnfComponent } from './reg-cnf/reg-cnf.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AdminComponent } from './admin/admin.component';
+import { AuthService } from './services/auth.service';
+import { BaseRequestOptions } from '@angular/http';
+import { fakeBackendProvider } from './helpers/fake-backend';
+import { MockBackend } from '@angular/http/testing';
+import { UserComponent } from './user/user.component';
+import { NoAccessComponent } from './no-access/no-access.component';
 
 @NgModule({
   declarations: [
@@ -15,14 +22,23 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     LoginFormComponent,
     SignupFormComponent,
     RegCnfComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    AdminComponent,
+    UserComponent,
+    NoAccessComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    //Only for mock backend. Remove in real app
+    fakeBackendProvider,
+    MockBackend,
+    BaseRequestOptions
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
