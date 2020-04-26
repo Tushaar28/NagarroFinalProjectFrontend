@@ -6,25 +6,13 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  currentUser: any; 
+  currentUser: any;
   constructor(private http: Http, private router: Router) {
     let token = localStorage.getItem('token');
     if (token) {
       let jwt = new JwtHelper();
       this.currentUser = jwt.decodeToken(token);
     }
-  }
-
-  login(credentials){
-    return this.http.post('/api/authenticate', JSON.stringify(credentials))  //post contains the backend url for authentication
-    .pipe(map(response => {
-      let result = response.json();
-      if(result && result.token){
-        localStorage.setItem('token', result.token);
-        return true;
-      }
-      return false;
-    }));
   }
 
   logout(){

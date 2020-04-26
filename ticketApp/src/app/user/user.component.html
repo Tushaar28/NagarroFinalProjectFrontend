@@ -1,5 +1,5 @@
 <div *ngIf="authService.isLoggedIn()">
-    <h1>Welcome {{ authService.currentUser.name }}</h1>
+    <h1>Welcome {{ authService.currentUser.firstName + " " + authService.currentUser.lastName }}</h1>
     <ul>
         <li *ngIf="authService.currentUser.admin ">
             <a routerLink="/admin">Admin</a>
