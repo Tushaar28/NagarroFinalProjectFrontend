@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CnfticketComponent implements OnInit {
 
-  constructor(public ticket: CreateticketComponent) { 
-    
+  constructor(ticket: CreateticketComponent) { 
+    console.log(ticket.arr);
   }
 
   ngOnInit(): void {

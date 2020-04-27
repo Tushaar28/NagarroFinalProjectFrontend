@@ -36,6 +36,7 @@ import { CreateticketComponent } from './createticket/createticket.component';
     HttpClientModule
   ],
   providers: [
+    CreateticketComponent,
     AuthService,
     //Only for mock backend. Remove in real app
     fakeBackendProvider,
