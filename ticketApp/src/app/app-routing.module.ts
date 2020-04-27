@@ -1,3 +1,7 @@
+import { NotfoundComponent } from './notfound/notfound.component';
+import { CnfticketComponent } from './cnfticket/cnfticket.component';
+import { ViewticketComponent } from './viewticket/viewticket.component';
+import { CreateticketComponent } from './createticket/createticket.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { AdminComponent } from './admin/admin.component';
 import { NgModule } from '@angular/core';
@@ -10,13 +14,18 @@ import { NoAccessComponent } from './no-access/no-access.component';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
 
 const routes: Routes = [
-  { path: 'login', component: LoginFormComponent},
-  { path: 'register', component: SignupFormComponent},
-  { path: 'forgot', component: ForgotPasswordComponent},
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard]},
-  { path: 'home', component: UserComponent},
-  { path: 'no-access', component: NoAccessComponent},
-  { path: '', redirectTo: '/login', pathMatch: 'full'}
+  { path: 'login', component: LoginFormComponent },
+  { path: 'register', component: SignupFormComponent },
+  { path: 'forgot', component: ForgotPasswordComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard] },
+  { path: 'home', component: UserComponent, canActivate: [AuthGuard] },
+  { path: 'no-access', component: NoAccessComponent },
+  { path: 'ticket/new', component: CreateticketComponent },
+  { path: 'ticket/all', component: ViewticketComponent },
+  { path: 'cnfticket', component: CnfticketComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '404', component: NotfoundComponent},
+  { path: '**', redirectTo: '404'}
 ];
 
 @NgModule({

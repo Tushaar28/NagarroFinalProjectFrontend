@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
@@ -15,6 +16,10 @@ import { fakeBackendProvider } from './helpers/fake-backend';
 import { MockBackend } from '@angular/http/testing';
 import { UserComponent } from './user/user.component';
 import { NoAccessComponent } from './no-access/no-access.component';
+import { CreateticketComponent } from './createticket/createticket.component';
+import { ViewticketComponent } from './viewticket/viewticket.component';
+import { CnfticketComponent } from './cnfticket/cnfticket.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,11 @@ import { NoAccessComponent } from './no-access/no-access.component';
     ForgotPasswordComponent,
     AdminComponent,
     UserComponent,
-    NoAccessComponent
+    NoAccessComponent,
+    CreateticketComponent,
+    ViewticketComponent,
+    CnfticketComponent,
+    NotfoundComponent
   ],
   imports: [
     FormsModule,
@@ -34,6 +43,7 @@ import { NoAccessComponent } from './no-access/no-access.component';
     HttpClientModule
   ],
   providers: [
+    RouterModule,
     AuthService,
     //Only for mock backend. Remove in real app
     fakeBackendProvider,

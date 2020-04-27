@@ -1,6 +1,5 @@
 import { Router } from '@angular/router';
-import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
-import { RegCnfComponent } from './../reg-cnf/reg-cnf.component';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
