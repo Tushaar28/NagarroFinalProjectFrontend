@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './../services/auth.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Component } from '@angular/core';
-import { CompileShallowModuleMetadata } from '@angular/compiler';
+import { RouterModule, Router, ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Component, OnInit, NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-login-form',
@@ -26,10 +26,10 @@ export class LoginFormComponent {
       let url = "http://localhost:8040/authenticate";
       let response = this.http.post(url, credentials);
       response.subscribe((data: Response) => {
-        console.log(data);
-        sessionStorage.setItem('token', data["jwt"])
-      });
-      if(!sessionStorage.getItem('token'))
+        localStorage.setItem('token', data["jwt"]);
+        localStorage.setItem('id', credentials['userName']);
+        });
+      if(!localStorage.getItem('token'))
         this.invalidLogin = true;
       else{
         let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');

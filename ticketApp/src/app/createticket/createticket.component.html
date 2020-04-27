@@ -1,8 +1,8 @@
 <div class="container-fluid">
-    <form action="" method="POST" #f="ngForm" (ngSubmit)="submit(f.value)">
-        <!--                                      Ticket Type                                      -->
+    <form method="post" #f="ngForm" (ngSubmit)="submit(f.value())">
+        <!--                                     Ticket Type                                     -->
         <div class="form-group">
-            <label for="type">Request Type</label>
+            <label for="type">Ticket Type</label>
             <div class="radio">
                 <label for="travel">
                     <input required ngModel name="type" #type="ngModel" type="radio" name="type" value="travel">
@@ -14,176 +14,179 @@
                     <input required ngModel name="type" #type="ngModel" type="radio" name="type" value="hotel">
                     Hotel Stay
                 </label>
-                <div class="alert alert-danger" *ngIf="type.touched && !type.valid">
-                    <div *ngIf="type.errors?.required">Ticket Type required</div>
-                </div>
             </div>
-            <!--                                       Priority                                     -->
-            <div class="form-group">
-                <label for="priority">Priority</label>
-                <div class="radio">
-                    <label for="low">
-                        <input required ngModel name="priority" #priority="ngModel" type="radio" name="priority"
-                            value="3">
-                        Low
-                    </label>
-                </div>
-                <div class="radio">
-                    <label for="medium">
-                        <input required ngModel name="priority" #priority="ngModel" type="radio" name="priority"
-                            value="2">
-                        Medium
-                    </label>
-                </div>
-                <div class="radio">
-                    <label for="high">
-                        <input required ngModel name="priority" #priority="ngModel" type="radio" name="priority"
-                            value="1">
-                        High
-                    </label>
-                </div>
-                <div class="alert alert-danger" *ngIf="priority.touched && !priority.valid">
-                    <div *ngIf="priority.errors?.required">Priority required</div>
-                </div>
+            <div class="radio">
+                <label for="work">
+                    <input required ngModel name="type" #type="ngModel" type="radio" name="type" value="work">
+                    Work Permit
+                </label>
             </div>
-
-            <!--                                            Destination                                -->
-            <div class="form-group">
-                <label for="dest">Travel City</label>
-                <input required ngModel name="dest" #dest="ngModel" id="dest" type="text" class="form-control"
-                    width="10">
-                <div class="alert alert-danger" *ngIf="dest.touched && !dest.valid">
-                    <div *ngIf="dest.errors?.required">Travel city required</div>
-                </div>
+            <div class="radio">
+                <label for="visa">
+                    <input required ngModel name="type" #type="ngModel" type="radio" name="type" value="visa">
+                    Visa
+                </label>
             </div>
-            <!--                                              Source                                   -->
-            <div class="form-group">
-                <label for="src">Origin City</label>
-                <input required ngModel name="src" #src="ngModel" id="src" type="text" class="form-control" width="10">
-                <div class="alert alert-danger" *ngIf="src.touched && !src.valid">
-                    <div *ngIf="src.errors?.required">Origin city required</div>
-                </div>
+            <div class="alert alert-danger" *ngIf="type.touched && !type.valid">
+                <div *ngIf="type.errors?.required">Ticket Type required</div>
             </div>
-            <!--                                            Start Date                                 -->
-            <div class="form-group">
-                <label for="start_date">Travel Start Date</label>
-                <input required ngModel name="start_date" #start_date="ngModel" id="start_date" type="date"
-                    class="form-control" width="10">
-                <div class="alert alert-danger" *ngIf="start_date.touched && !start_date.valid">
-                    <div *ngIf="start_date.errors?.required">Travel start date required</div>
-                </div>
+        </div>
+        <!--                                       Priority                                           -->
+        <div class="form-group">
+            <label for="priority">Priority</label>
+            <div class="radio">
+                <label for="low">
+                    <input required ngModel name="priority" #priority="ngModel" type="radio" name="priority" value="3">
+                    Low
+                </label>
             </div>
-            <!--                                            End Date                                  -->
-            <div class="form-group">
-                <label for="end_date">Travel End Date</label>
-                <input required ngModel name="end_date" #end_date="ngModel" id="end_date" type="date"
-                    class="form-control" width="10">
-                <div class="alert alert-danger" *ngIf="end_date.touched && !end_date.valid">
-                    <div *ngIf="end_date.errors?.required">Travel end date required</div>
-                </div>
+            <div class="radio">
+                <label for="medium">
+                    <input required ngModel name="priority" #priority="ngModel" type="radio" name="priority" value="2">
+                    Medium
+                </label>
             </div>
-            <!--                                             Passport                                  -->
-            <div class="form-group">
-                <label for="passport">Passport</label>
-                <input required ngModel name="passport" #passport="ngModel" id="passport" type="text"
-                    class="form-control" width="10">
-                <div class="alert alert-danger" *ngIf="passport.touched && !passport.valid">
-                    <div *ngIf="passport.errors?.required">Passport required</div>
-                </div>
+            <div class="radio">
+                <label for="high">
+                    <input required ngModel name="priority" #priority="ngModel" type="radio" name="priority" value="1">
+                    High
+                </label>
             </div>
-            <!--                                             Project Name                              -->
-            <div class="form-group">
-                <label for="project">Project Name</label>
-                <input required ngModel name="project" #project="ngModel" id="project" type="text" class="form-control"
-                    width="10">
-                <div class="alert alert-danger" *ngIf="project.touched && !project.valid">
-                    <div *ngIf="project.errors?.required">Project Name required</div>
-                </div>
+            <div class="alert alert-danger" *ngIf="priority.touched && !priority.valid">
+                <div *ngIf="priority.errors?.required">Priority required</div>
             </div>
-            <!--                                      Expense Borne by                                 -->
-            <div class="form-group">
-                <label for="expense">Expense borne by</label>
-                <div class="radio">
-                    <label for="client">
-                        <input required ngModel name="bearer" #bearer="ngModel" type="radio" name="bearer"
-                            value="1">
-                        Client
-                    </label>
-                </div>
-                <div class="radio">
-                    <label for="nagarro">
-                        <input required ngModel name="bearer" #bearer="ngModel" type="radio" name="bearer"
-                            value="0">
-                        Nagarro
-                    </label>
-                    <div class="alert alert-danger" *ngIf="bearer.touched && !bearer.valid">
-                        <div *ngIf="bearer.errors?.required">Field required</div>
-                    </div>
-                </div>
-                <!--                                        Travel Approver                                -->
-                <div class="form-group">
-                    <label for="approver">Travel Approver Name</label>
-                    <input ngModel name="approver" #approver="ngModel" id="approver" type="text" class="form-control"
-                        width="10">
-                    <div class="alert alert-danger" *ngIf="approver.touched && !approver.valid">
-                        <div *ngIf="approver.errors?.required">Travel Approver Name required</div>
-                    </div>
-                </div>
-                <!--                                           Duration                                    -->
-                <div class="form-group">
-                    <label for="duration">Expected Duration (in days)</label>
-                    <input ngModel name="duration" #duration="ngModel" id="duration" type="number" class="form-control"
-                        width="10" min="1" pattern="^[1-9]\d{0,5}$">
-                    <div class="alert alert-danger" *ngIf="duration.touched && !duration.valid">
-                        <div *ngIf="duration.errors?.required">Travel Duration required</div>
-                        <div *ngIf="duration.errors?.pattern">Invalid Duration</div>
-                    </div>
-                </div>
-                <!--                                            Cost Bound                                 -->
-                <div class="form-group">
-                    <label for="cost_limit">Any Upper bound on Travel</label>
-                    <div class="radio">
-                        <label for="yes">
-                            <input ngModel name="cost_limit" #cost_limit="ngModel" type="radio" name="cost_limit"
-                                value="1">
-                            Yes
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label for="no">
-                            <input ngModel name="cost_limit" #cost_limit="ngModel" type="radio" name="cost_limit"
-                                value="0">
-                            No
-                        </label>
-                        <div class="alert alert-danger" *ngIf="cost_limit.touched && !cost_limit.valid">
-                            <div *ngIf="cost_limit.errors?.required">Ticket Type required</div>
-                        </div>
-                    </div>
-                    <!--                                               If upper bound                              -->
-                    <div class="form-group" *ngIf="f.value['cost_limit'] == 1">
-                        <label for="limit">If Yes, Please specify:</label>
-                        <input required ngModel name="limit" #limit="ngModel" id="limit" type="text" class="form-control" maxlength="500">
-                        <div class="alert alert-danger" *ngIf="limit.touched && !details.valid">
-                            <div *ngIf="limit.errors?.required">Field required</div>
-                        </div>
-                    </div>
-                    <!--                                              Additional Details                       -->
-                    <div class="form-group">
-                        <label for="details">Aditional Details</label>
-                        <input required ngModel name="details" #details="ngModel" id="details" type="text"
-                            class="form-control" width="10">
-                        <div class="alert alert-danger" *ngIf="details.touched && !details.valid">
-                            <div *ngIf="details.errors?.required">Details required</div>
-                        </div>
-                    </div>
-                    
-                </div>
-                <!-- <p>
-                    {{ f.value | json }}
-                </p> -->
-                <!--                                                 Button                                    -->
-                <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
-                <button type="reset" class="btn btn-danger" (click)="onClickReset()">Cancel</button>
-
-
+        </div>
+        <!--                                       Destination                                        -->
+        <div class="form-group">
+            <label for="dest">Travel City</label>
+            <input required ngModel name="dest" #dest="ngModel" id="dest" type="text" class="form-control" width="10">
+            <div class="alert alert-danger" *ngIf="dest.touched && !dest.valid">
+                <div *ngIf="dest.errors?.required">Travel city required</div>
             </div>
+        </div>
+        <!--                                          Source                                           -->
+        <div class="form-group">
+            <label for="src">Origin City</label>
+            <input required ngModel name="src" #src="ngModel" id="src" type="text" class="form-control" width="10">
+            <div class="alert alert-danger" *ngIf="src.touched && !src.valid">
+                <div *ngIf="src.errors?.required">Origin city required</div>
+            </div>
+        </div>
+        <!--                                            Start Date                                      -->
+        <div class="form-group">
+            <label for="start_date">Travel Start Date</label>
+            <input required ngModel name="start_date" #start_date="ngModel" id="start_date" type="date"
+                class="form-control" width="10">
+            <div class="alert alert-danger" *ngIf="start_date.touched && !start_date.valid">
+                <div *ngIf="start_date.errors?.required">Travel start date required</div>
+            </div>
+        </div>
+        <!--                                              End Date                                       -->
+        <div class="form-group">
+            <label for="end_date">Travel End Date</label>
+            <input required ngModel name="end_date" #end_date="ngModel" id="end_date" type="date" class="form-control"
+                width="10">
+            <div class="alert alert-danger" *ngIf="end_date.touched && !end_date.valid">
+                <div *ngIf="end_date.errors?.required">Travel end date required</div>
+            </div>
+        </div>
+        <!--                                                  Passport                                    -->
+        <div class="form-group">
+            <label for="passport">Passport</label>
+            <input required ngModel name="passport" #passport="ngModel" id="passport" type="text" class="form-control"
+                width="10">
+            <div class="alert alert-danger" *ngIf="passport.touched && !passport.valid">
+                <div *ngIf="passport.errors?.required">Passport required</div>
+            </div>
+        </div>
+        <!--                                                    Project name                               -->
+        <div class="form-group">
+            <label for="project">Project Name</label>
+            <input required ngModel name="project" #project="ngModel" id="project" type="text" class="form-control"
+                width="10">
+            <div class="alert alert-danger" *ngIf="project.touched && !project.valid">
+                <div *ngIf="project.errors?.required">Project Name required</div>
+            </div>
+        </div>
+        <!--                                                    Expense Borne by                            -->
+        <div class="form-group">
+            <label for="expense">Expense borne by</label>
+            <div class="radio">
+                <label for="client">
+                    <input required ngModel name="bearer" #bearer="ngModel" type="radio" name="bearer" value="1">
+                    Client
+                </label>
+            </div>
+            <div class="radio">
+                <label for="nagarro">
+                    <input required ngModel name="bearer" #bearer="ngModel" type="radio" name="bearer" value="0">
+                    Nagarro
+                </label>
+            </div>
+            <div class="alert alert-danger" *ngIf="bearer.touched && !bearer.valid">
+                <div *ngIf="bearer.errors?.required">Field required</div>
+            </div>
+        </div>
+        <!--                                        Travel Approver                                -->
+        <div class="form-group">
+            <label for="approver">Travel Approver Name</label>
+            <input ngModel name="approver" #approver="ngModel" id="approver" type="text" class="form-control"
+                width="10">
+            <div class="alert alert-danger" *ngIf="approver.touched && !approver.valid">
+                <div *ngIf="approver.errors?.required">Travel Approver Name required</div>
+            </div>
+        </div>
+        <!--                                           Duration                                    -->
+        <div class="form-group">
+            <label for="duration">Expected Duration (in days)</label>
+            <input ngModel name="duration" #duration="ngModel" id="duration" type="number" class="form-control"
+                width="10" min="1" pattern="^[1-9]\d{0,5}$">
+            <div class="alert alert-danger" *ngIf="duration.touched && !duration.valid">
+                <div *ngIf="duration.errors?.required">Travel Duration required</div>
+                <div *ngIf="duration.errors?.pattern">Invalid Duration</div>
+            </div>
+        </div>
+        <!--                                            Cost Bound                                 -->
+        <div class="form-group">
+            <label for="cost_limit">Any Upper bound on Travel</label>
+            <div class="radio">
+                <label for="yes">
+                    <input ngModel name="cost_limit" #cost_limit="ngModel" type="radio" name="cost_limit" value="1">
+                    Yes
+                </label>
+            </div>
+            <div class="radio">
+                <label for="no">
+                    <input ngModel name="cost_limit" #cost_limit="ngModel" type="radio" name="cost_limit" value="0">
+                    No
+                </label>
+            </div>
+            <div class="alert alert-danger" *ngIf="cost_limit.touched && !cost_limit.valid">
+                <div *ngIf="cost_limit.errors?.required">Field required</div>
+            </div>
+        </div>
+        <!--                                               If upper bound                              -->
+        <div class="form-group" *ngIf="f.value['cost_limit'] == 1">
+            <label for="limit">If Yes, Please specify:</label>
+            <input required ngModel name="limit" #limit="ngModel" type="text" name="limit" maxlength="500">
+            <div class="alert alert-danger" *ngIf="limit.touched && !limit.valid">
+                <div *ngIf="limit.errors?.required">Field required</div>
+            </div>
+        </div>
+        <!--                                              Additional Details                           -->
+        <div class="form-group">
+            <label for="details">Aditional Details</label>
+            <input required ngModel name="details" #details="ngModel" id="details" type="text" class="form-control"
+                width="10">
+            <div class="alert alert-danger" *ngIf="details.touched && !details.valid">
+                <div *ngIf="details.errors?.required">Details required</div>
+            </div>
+        </div>
+        <!-- <p>
+            {{ f.value | json }}
+        </p> -->
+        <!--                                                 Button                                    -->
+        <button class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+        <button type="reset" class="btn btn-danger" (click)="onClickReset()">Cancel</button>
+    </form>
+</div>
