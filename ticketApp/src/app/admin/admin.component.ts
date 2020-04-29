@@ -19,7 +19,7 @@ export class AdminComponent implements OnInit {
     response.subscribe(
       data => {
         this.data = data;
-        //console.log(data);
+        console.log(data);
       },
       error => {
         this.error = error;
@@ -28,44 +28,44 @@ export class AdminComponent implements OnInit {
     )
   }
 
-  approve(ticket){
+  approve(ticket, i){
     const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
     const url = "http://localhost:8040/updateticket";
     const body = {
       "id": ticket.id,
       "status": 1,
-      "isProcessing": "false"
     }
     let response = this.http.patch(url, body, { 'headers': headers })
     response.subscribe(
       data => console.log(data),
       error => console.log(error)
     )
+    this.data[i].status = 1
     //console.log(ticket.dest)
   }
 
-  reject(ticket){
+  reject(ticket, i){
     const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
     const url = "http://localhost:8040/updateticket";
     const body = {
       "id": ticket.id,
       "status": -1,
-      "isProcessing": "false"
     }
     let response = this.http.patch(url, body, { 'headers': headers })
     response.subscribe(
       data => console.log(data),
       error => console.log(error)
     )
+    this.data[i].status = -1
   }
 
-  processing(ticket){
+  processing(ticket, i){
     const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
     const url = "http://localhost:8040/updateticket";
     const body = {
       "id": ticket.id,
       "status": 0,
-      "isProcessing": "true"
+      "isProcessing": true
     }
     let response = this.http.patch(url, body, { 'headers': headers })
     response.subscribe(
