@@ -9,11 +9,12 @@ import { CommonModule} from '@angular/common'
 export class AdminComponent implements OnInit {
   error: any;
   data: any;
+  i = 0;
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
-    const url = "http://localhost:8040/getticketadmin";
+    const url = "http://localhost:8040/demo";
     let response = this.http.post(url,null, { 'headers': headers });
     response.subscribe(
       data => {
@@ -25,6 +26,13 @@ export class AdminComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+
+  approve(){
+    console.log("Tick clicked")
+  }
+  reject(){
+    console.log("Cross clicked")
   }
 
 }

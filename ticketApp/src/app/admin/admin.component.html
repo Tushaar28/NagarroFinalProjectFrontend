@@ -11,39 +11,40 @@
             <th scope="col">Actions</th>
         </tr>
     </thead>
-    <tbody *ngFor="let user of data;let i = index"> 
-        <tr *ngFor="let ticket of user[i];let j = index">
-            <td>{{ i + j }}</td>
-            <td> {{ ticket[j].issuedBy}}</td>
-            <td>{{ ticket[j].email }}</td>
-            <td>{{ ticket[j].type }}</td>
+    <tbody>
+        <tr *ngFor="let ticket of data;let i = index;">
+            <td>{{ i + 1 }}</td>
+            <td>{{ ticket.issuedBy }}</td>
+            <td>{{ ticket.email }}</td>
+            <td>{{ ticket.type }}</td>
             <td>
-                <div *ngIf="ticket[j].priority == 3">
+                <div *ngIf = "ticket.priority == 1">
                     Low
                 </div>
-                <div *ngIf="ticket[j].priority == 2">
+                <div *ngIf = "ticket.priority == 2">
                     Medium
                 </div>
-                <div *ngIf="ticket[j].priority == 1">
+                <div *ngIf = "ticket.priority == 3">
                     High
                 </div>
             </td>
             <td>
-                <div *ngIf="ticket[j].status == -1">
+                <div *ngIf = "ticket.status == -1">
                     Rejected
                 </div>
-                <div *ngIf="ticket[j].status == 0">
+                <div *ngIf = "ticket.status == 0">
                     Pending
                 </div>
-                <div *ngIf="ticket[j].status == 1">
+                <div *ngIf = "ticket.status == 1">
                     Approved
                 </div>
             </td>
             <td>
-                <i class="fa fa-check" aria-hidden="true"></i>
-                <i class="fa fa-times" aria-hidden="true"></i>
+                <div *ngIf = "ticket.status == 0">
+                    <i (click)="approve()" class="fa fa-check" aria-hidden="true"></i>
+                    <i (click)="reject()" class="fa fa-ban" aria-hidden="true"></i>
+                </div>
             </td>
         </tr>
-        
     </tbody>
 </table>
