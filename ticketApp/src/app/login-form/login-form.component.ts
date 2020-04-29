@@ -9,7 +9,7 @@ import { Component, OnInit, NgModule } from '@angular/core';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent {
+export class LoginFormComponent implements OnInit {
   invalidLogin: boolean;
   constructor(
     private http: HttpClient,
@@ -19,30 +19,32 @@ export class LoginFormComponent {
     {
 
     }
-
+    ngOnInit(){
+      const token = localStorage.getItem('token')
+      if(token)
+        this.router.navigate(['/home'])
+      const url = "http://localhost:8040/addadmin"
+      let response = this.http.get(url);
+      response.subscribe(
+        data => null,
+        error => null
+      )
+    }
     signIn(credentials){
-      
-      //console.log(credentials);
-      let url = "http://localhost:8040/authenticate";
+      const url = "http://localhost:8040/authenticate";
       let response = this.http.post(url, credentials);
-      response.subscribe((data: Response) => {
+      response.subscribe(
+        (data: Response) => {
         localStorage.setItem('token', data["jwt"]);
         localStorage.setItem('id', credentials['userName']);
-        });
+        },
+        error => this.invalidLogin = true
+        );
       if(!localStorage.getItem('token'))
         this.invalidLogin = true;
       else{
         let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
         this.router.navigate([returnUrl || '/home']); //URL of user homepage
       }
-      // this.authService.login(credentials)
-      // .subscribe(result => {
-      //   if(result){
-      //     let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
-      //     this.router.navigate([returnUrl || '/home']); //URL of user homepage
-      //   }
-      //   else
-      //     this.invalidLogin = true;
-      // });
     }
 }
