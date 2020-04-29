@@ -1,1 +1,39 @@
-<p>viewticket works!</p>
+<app-user></app-user>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Type</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of data;let i = index">
+            <td>{{data[i].id }}</td>
+            <td>{{ data[i].type }}</td>
+            <td>
+                <div *ngIf="data[i].priority == 3">
+                    Low
+                </div>
+                <div *ngIf="data[i].priority == 2">
+                    Medium
+                </div>
+                <div *ngIf="data[i].priority == 1">
+                    High
+                </div>
+            </td>
+            <td>
+                <div *ngIf="data[i].status == -1">
+                    Rejected
+                </div>
+                <div *ngIf="data[i].status == 0">
+                    Pending
+                </div>
+                <div *ngIf="data[i].status == 1">
+                    Approved
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

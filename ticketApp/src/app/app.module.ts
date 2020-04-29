@@ -1,3 +1,5 @@
+import { ViewticketComponent } from './viewticket/viewticket.component';
+import { CommonModule} from '@angular/common'
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
@@ -27,9 +29,11 @@ import { CreateticketComponent } from './createticket/createticket.component';
     AdminComponent,
     UserComponent,
     NoAccessComponent,
-    CreateticketComponent
+    CreateticketComponent,
+    ViewticketComponent
   ],
   imports: [
+    CommonModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,

@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cnfticket.component.css']
 })
 export class CnfticketComponent implements OnInit {
-
-  constructor(ticket: CreateticketComponent) { 
+  data: any;
+  constructor(private ticket: CreateticketComponent) { 
+    this.data = ticket.arr;
   }
 
   ngOnInit(): void {
+  }
+  show(){
+    console.log(this.data);
   }
 }
