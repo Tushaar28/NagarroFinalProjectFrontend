@@ -8,7 +8,7 @@
     </ul>
 </div> -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
-    <p class="navbar-brand" >Welcome {{ authService.currentUser.firstName + " " + authService.currentUser.lastName }}</p>
+    <p class="navbar-brand" >Welcome {{ this.currentUser.firstName + " " + this.currentUser.lastName }}</p>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -17,19 +17,19 @@
         <li class="nav-item active">
           <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item" *ngIf="!authService.currentUser.admin">
+        <li class="nav-item" *ngIf="!currentUser.admin">
           <a class="nav-link" href="/ticket/new">New Ticket</a>
         </li>
-        <li class="nav-item" *ngIf="!authService.currentUser.admin">
+        <li class="nav-item" *ngIf="!currentUser.admin">
           <a class="nav-link" href="/ticket/all">All Tickets</a>
         </li>
-        <li class="nav-item" *ngIf="authService.currentUser.admin">
+        <li class="nav-item" *ngIf="currentUser.admin">
           <a class="nav-link" href="/admin">Admin Panel</a>
         </li>
       </ul>
       <span class="navbar-text">
-        <div *ngIf="authService.isLoggedIn()">
-            <a href = "" (click)="authService.logout()">Logout</a>
+        <div *ngIf="isLoggedIn()">
+            <a href = "" (click)="logout()">Logout</a>
         </div>
       </span>
     </div>
