@@ -1,12 +1,3 @@
-<!-- <div *ngIf="authService.isLoggedIn()">
-    <h1>Welcome {{ authService.currentUser.firstName + " " + authService.currentUser.lastName }}</h1>
-    <ul>
-        <li *ngIf="authService.currentUser.admin ">
-            <a routerLink="/admin">Admin</a>
-        </li>
-        <li *ngIf="authService.isLoggedIn()"><a (click)="authService.logout()">Logout</a></li>
-    </ul>
-</div> -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
     <p class="navbar-brand" >Welcome {{ this.currentUser.firstName + " " + this.currentUser.lastName }}</p>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,13 +9,13 @@
           <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" *ngIf="!currentUser.admin">
-          <a class="nav-link" href="/ticket/new">New Ticket</a>
+          <a class="nav-link" href="home/ticket/new">New Ticket</a>
         </li>
         <li class="nav-item" *ngIf="!currentUser.admin">
-          <a class="nav-link" href="/ticket/all">All Tickets</a>
+          <a class="nav-link" href="home/tickets/all">All Tickets</a>
         </li>
         <li class="nav-item" *ngIf="currentUser.admin">
-          <a class="nav-link" href="/admin">Admin Panel</a>
+          <a class="nav-link" href="/admin/tickets">Admin Panel</a>
         </li>
       </ul>
       <span class="navbar-text">
