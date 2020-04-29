@@ -14,25 +14,64 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
-    const url = "http://localhost:8040/demo";
+    const url = "http://localhost:8040/getticketadmin";
     let response = this.http.post(url,null, { 'headers': headers });
     response.subscribe(
       data => {
         this.data = data;
-        console.log(data);
+        //console.log(data);
       },
       error => {
         this.error = error;
-        console.log(error);
+        //console.log(error);
       }
     )
   }
 
-  approve(){
-    console.log("Tick clicked")
+  approve(ticket){
+    const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
+    const url = "http://localhost:8040/updateticket";
+    const body = {
+      "id": ticket.id,
+      "status": 1,
+      "isProcessing": "false"
+    }
+    let response = this.http.patch(url, body, { 'headers': headers })
+    response.subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    )
+    //console.log(ticket.dest)
   }
-  reject(){
-    console.log("Cross clicked")
+
+  reject(ticket){
+    const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
+    const url = "http://localhost:8040/updateticket";
+    const body = {
+      "id": ticket.id,
+      "status": -1,
+      "isProcessing": "false"
+    }
+    let response = this.http.patch(url, body, { 'headers': headers })
+    response.subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    )
+  }
+
+  processing(ticket){
+    const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
+    const url = "http://localhost:8040/updateticket";
+    const body = {
+      "id": ticket.id,
+      "status": 0,
+      "isProcessing": "true"
+    }
+    let response = this.http.patch(url, body, { 'headers': headers })
+    response.subscribe(
+      data => console.log(data),
+      error => console.log(error)
+    )
   }
 
 }

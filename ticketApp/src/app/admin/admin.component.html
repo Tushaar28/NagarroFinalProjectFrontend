@@ -19,13 +19,13 @@
             <td>{{ ticket.type }}</td>
             <td>
                 <div *ngIf = "ticket.priority == 1">
-                    Low
+                    High
                 </div>
                 <div *ngIf = "ticket.priority == 2">
                     Medium
                 </div>
                 <div *ngIf = "ticket.priority == 3">
-                    High
+                    Low
                 </div>
             </td>
             <td>
@@ -41,8 +41,9 @@
             </td>
             <td>
                 <div *ngIf = "ticket.status == 0">
-                    <i (click)="approve()" class="fa fa-check" aria-hidden="true"></i>
-                    <i (click)="reject()" class="fa fa-ban" aria-hidden="true"></i>
+                    <i (click)="approve(ticket)" class="fa fa-check" aria-hidden="true"></i>
+                    <i (click)="reject(ticket)" class="fa fa-ban" aria-hidden="true"></i>
+                    <i (click)="processing(ticket)" class="fa fa-spinner" aria-hidden="true"></i>
                 </div>
             </td>
         </tr>
