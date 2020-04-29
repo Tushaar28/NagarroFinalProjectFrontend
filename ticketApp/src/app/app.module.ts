@@ -26,11 +26,11 @@ import { CreateticketComponent } from './createticket/createticket.component';
     SignupFormComponent,
     RegCnfComponent,
     ForgotPasswordComponent,
-    AdminComponent,
     UserComponent,
     NoAccessComponent,
     CreateticketComponent,
-    ViewticketComponent
+    ViewticketComponent,
+    AdminComponent
   ],
   imports: [
     CommonModule,

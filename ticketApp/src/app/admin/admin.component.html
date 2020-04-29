@@ -1,1 +1,49 @@
-<p>admin works!</p>
+<app-user></app-user>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Sr. No.</th>
+            <th scope="col">Issued By</th>
+            <th scope="col">Email</th>
+            <th scope="col">Type</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let user of data;let i = index"> 
+        <tr *ngFor="let ticket of user[i];let j = index">
+            <td>{{ i + j }}</td>
+            <td> {{ ticket[j].issuedBy}}</td>
+            <td>{{ ticket[j].email }}</td>
+            <td>{{ ticket[j].type }}</td>
+            <td>
+                <div *ngIf="ticket[j].priority == 3">
+                    Low
+                </div>
+                <div *ngIf="ticket[j].priority == 2">
+                    Medium
+                </div>
+                <div *ngIf="ticket[j].priority == 1">
+                    High
+                </div>
+            </td>
+            <td>
+                <div *ngIf="ticket[j].status == -1">
+                    Rejected
+                </div>
+                <div *ngIf="ticket[j].status == 0">
+                    Pending
+                </div>
+                <div *ngIf="ticket[j].status == 1">
+                    Approved
+                </div>
+            </td>
+            <td>
+                <i class="fa fa-check" aria-hidden="true"></i>
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>
