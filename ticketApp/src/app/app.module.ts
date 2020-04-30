@@ -1,3 +1,15 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatRippleModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
 import { ViewticketComponent } from './viewticket/viewticket.component';
 import { CommonModule} from '@angular/common'
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +30,7 @@ import { MockBackend } from '@angular/http/testing';
 import { UserComponent } from './user/user.component';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { CreateticketComponent } from './createticket/createticket.component';
+import { ViewticketdetailComponent } from './viewticketdetail/viewticketdetail.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +43,22 @@ import { CreateticketComponent } from './createticket/createticket.component';
     NoAccessComponent,
     CreateticketComponent,
     ViewticketComponent,
-    AdminComponent
+    AdminComponent,
+    ViewticketdetailComponent
   ],
   imports: [
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatRippleModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    BrowserAnimationsModule,
     CommonModule,
     FormsModule,
     BrowserModule,
@@ -40,6 +66,7 @@ import { CreateticketComponent } from './createticket/createticket.component';
     HttpClientModule
   ],
   providers: [
+    ViewticketComponent,
     CreateticketComponent,
     AuthService,
     //Only for mock backend. Remove in real app

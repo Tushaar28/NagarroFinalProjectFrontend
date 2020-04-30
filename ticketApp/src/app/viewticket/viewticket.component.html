@@ -9,7 +9,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let row of data;let i = index">
+        <tr *ngFor="let row of data;let i = index" (click) = "getId(row.id)">
             <td>{{data[i].id }}</td>
             <td>{{ data[i].type }}</td>
             <td>

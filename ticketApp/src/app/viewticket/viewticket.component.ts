@@ -1,6 +1,6 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CommonModule} from '@angular/common'
 
 @Component({
   selector: 'app-viewticket',
@@ -10,7 +10,9 @@ import { CommonModule} from '@angular/common'
 export class ViewticketComponent implements OnInit {
   error: any;
   data: any;
-  constructor(private http: HttpClient) { }
+  id: any
+  constructor(private http: HttpClient,
+    public router: Router) { }
 
   ngOnInit(): void {
     const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
@@ -19,12 +21,21 @@ export class ViewticketComponent implements OnInit {
     response.subscribe(
       data => {
         this.data = data;
-        console.log(data);
+        //console.log(data);
       },
       error => {
         this.error = error;
         console.log(error);
       }
     )
+  }
+
+  getId(id){
+    this.id = id
+    this.router.navigate(['/home/ticket', this.id])
+  }
+
+  returnId(){
+    return this.id;
   }
 }

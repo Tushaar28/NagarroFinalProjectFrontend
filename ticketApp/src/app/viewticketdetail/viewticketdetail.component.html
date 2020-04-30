@@ -1,0 +1,17 @@
+<app-user></app-user>
+
+<div class="conatiner-fluid">
+    <form method="post" #f="ngForm" (ngSubmit)="submit(f.value)">
+        <!--                                      Ticket Type                                         -->
+        <div class="form-group">
+            <label for="type">Ticket Type</label>
+            <div class="radio">
+                <label for="travel">
+                    <input required ngModel name="type" #type="ngModel" type="radio" name="type" value="travel"
+                        [checked]="data.type == 'travel'" [readonly]="!data.isProcessing">
+                    Travel Tickets<p>{{ data.type }}</p>
+                </label>
+            </div>
+        </div>
+    </form>
+</div>
