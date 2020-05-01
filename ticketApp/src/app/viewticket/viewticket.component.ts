@@ -38,4 +38,9 @@ export class ViewticketComponent implements OnInit {
   returnId(){
     return this.id;
   }
+
+  clickEdit(id){
+    this.router.navigate(['/home/ticket/edit', id])
+  }
+
 }

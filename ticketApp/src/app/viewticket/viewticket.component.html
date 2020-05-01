@@ -6,6 +6,7 @@
             <th scope="col">Type</th>
             <th scope="col">Priority</th>
             <th scope="col">Status</th>
+            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -33,6 +34,10 @@
                 <div *ngIf="data[i].status == 1">
                     Approved
                 </div>
+            </td>
+            <td>
+                <button class="btn btn-primary" [disabled]="!row.isProcessing && row.status == 0"
+                (click)="clickEdit(row.id)">Edit</button>
             </td>
         </tr>
     </tbody>

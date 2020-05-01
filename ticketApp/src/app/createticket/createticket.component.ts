@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./createticket.component.css']
 })
 export class CreateticketComponent {
+  ticketTypes: string[] = ["Travel Tickets", "Hotel Stay", "Work Permit", "Visa"]
   arr: any;
   error: Boolean = false;
   //data: Response;

@@ -31,6 +31,7 @@ import { UserComponent } from './user/user.component';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { CreateticketComponent } from './createticket/createticket.component';
 import { ViewticketdetailComponent } from './viewticketdetail/viewticketdetail.component';
+import { EditticketComponent } from './editticket/editticket.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ViewticketdetailComponent } from './viewticketdetail/viewticketdetail.c
     CreateticketComponent,
     ViewticketComponent,
     AdminComponent,
-    ViewticketdetailComponent
+    ViewticketdetailComponent,
+    EditticketComponent
   ],
   imports: [
     MatTableModule,

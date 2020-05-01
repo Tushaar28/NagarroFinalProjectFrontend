@@ -1,0 +1,9 @@
+.type-label {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+  .type {
+    margin: 5px;
+  }

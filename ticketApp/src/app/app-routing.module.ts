@@ -1,3 +1,4 @@
+import { EditticketComponent } from './editticket/editticket.component';
 import { ViewticketdetailComponent } from './viewticketdetail/viewticketdetail.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CnfticketComponent } from './cnfticket/cnfticket.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'no-access', component: NoAccessComponent },
   { path: 'home/ticket/new', component: CreateticketComponent },
   { path: 'home/ticket/:id', component: ViewticketdetailComponent },
+  { path: 'home/ticket/edit/:id', component: EditticketComponent },
   { path: 'home/tickets/all', component: ViewticketComponent },
   { path: 'cnfticket', component: CnfticketComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
