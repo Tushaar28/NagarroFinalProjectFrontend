@@ -49,3 +49,6 @@ button{
 .form-control.ng-touched.ng-invalid{
     border: 2px solid red;
 }
+.credentials{
+    padding-left: 50px;
+}

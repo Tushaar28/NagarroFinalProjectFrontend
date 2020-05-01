@@ -1,8 +1,9 @@
+import { ConfirmDialogComponent, ConfirmDialogModel } from './../confirm-dialog/confirm-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './../services/auth.service';
-import { RouterModule, Router, ActivatedRoute } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login-form',
@@ -10,14 +11,28 @@ import { Component, OnInit, NgModule } from '@angular/core';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
+  hide = true;
   invalidLogin: boolean;
+  result: string;
   constructor(
+    public dialog: MatDialog,
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
     private authService: AuthService) {
 
   }
+
+  confirmDialog(){
+    const message = "Are you sure you want to do this?"
+    const dialogData = new ConfirmDialogModel("Confirm Action", message);
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      maxWidth: "400px",
+      data: dialogData
+    })
+    dialogRef.afterClosed().subscribe(dialogResult => {
+      this.result = dialogResult;})}
+
   ngOnInit() {
     const token = localStorage.getItem('token')
     if (token)

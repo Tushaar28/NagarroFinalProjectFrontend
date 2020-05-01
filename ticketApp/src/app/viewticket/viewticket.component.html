@@ -28,15 +28,19 @@
                 <div *ngIf="data[i].status == -1">
                     Rejected
                 </div>
-                <div *ngIf="data[i].status == 0">
+                <div *ngIf="data[i].status == 0 && !data[i].isProcessing">
                     Pending
+                </div>
+                <div *ngIf="data[i].status == 0 && data[i].isProcessing">
+                    Processing
                 </div>
                 <div *ngIf="data[i].status == 1">
                     Approved
                 </div>
             </td>
             <td>
-                <button class="btn btn-primary" [disabled]="!row.isProcessing && row.status == 0"
+                <!-- <p>{{ !row.isProcessing && row.status == 0 }}</p> -->
+                <button class="btn btn-primary" [disabled]="row.isProcessing || row.status != 0"
                 (click)="clickEdit(row.id)">Edit</button>
             </td>
         </tr>

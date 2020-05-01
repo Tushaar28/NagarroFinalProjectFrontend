@@ -20,13 +20,40 @@
               <div *ngIf="invalidLogin" class="alert alert-danger">
                 Invalid username and/or password
               </div>
+            </div class="credentials">
+            <mat-form-field class="userName">
+              <mat-label>Username</mat-label>
+              <input matInput required ngModel name="userName" #userName="ngModel" id="userName" type="text"
+                placeholder="abc@naagrro.com">
+              <mat-error class="alert alert-danger" *ngIf="userName.touched && !userName.valid">
+                <mat-error *ngIf="userName.errors.required">Username Required</mat-error>
+              </mat-error>
+            </mat-form-field>
+            <br>
+            <!--                                           Password                                           -->
+            <div>
+              <mat-form-field class="password">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" required ngModel name="password" #password="ngModel"
+                  id="password" placeholder="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                  <mat-error *ngIf="password.errors.required">Password Required</mat-error>
+                </mat-error>
+              </mat-form-field>
             </div>
-            <div class="form-group">
-              <!-- <mat-form-field appearance="fill">
+            <div>
+              <button mat-raised-button color="primary" [disabled]="!f.valid">Log In</button>
+            </div>
+            <!-- <div class="form-group">
+               <mat-form-field appearance="fill">
                 <mat-label>Username</mat-label>
                 <input matInput placeholder="abc@nagarro.com" [ngModel]="email" #email="ngModel" required>
                 <mat-error *ngIf="email.invalid">Username required</mat-error>
-              </mat-form-field> -->
+              </mat-form-field>
               <label for="userName" class="label">UserName</label>
               <input required ngModel name="userName" #userName="ngModel" id="userName" type="text"
                 class="form-control mx-auto shadow-lg bg-white" placeholder="Username" style="width:80%">
@@ -46,7 +73,7 @@
             <div class="form-group">
               <button class="btn btn-primary mx-auto btn-block shadow-lg  " style="width:80%;background-color:#FA5162"
                 [disabled]="!f.valid">Log In</button>
-            </div>
+            </div> -->
             <div class="mx-auto">
               <button type="button" class="btn btn-link btn-block mx-auto" id="forgot-btn" style="font-size: small;"
                 onclick="window.location.href='/forgot'">Forgot your password?</button>
@@ -55,6 +82,9 @@
               <p style="font-size: smaller;text-align: center;">Don't have an account?<a routerLink="/register">Sign
                   Up</a></p>
             </div>
+            <!-- <button mat-raised-button color="primary" (click)="confirmDialog()">Confirm</button>
+            <br>
+            Response is: {{result}} -->
           </form>
         </div>
 

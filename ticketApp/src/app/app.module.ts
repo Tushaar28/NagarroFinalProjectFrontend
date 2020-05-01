@@ -1,4 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
@@ -32,6 +34,7 @@ import { NoAccessComponent } from './no-access/no-access.component';
 import { CreateticketComponent } from './createticket/createticket.component';
 import { ViewticketdetailComponent } from './viewticketdetail/viewticketdetail.component';
 import { EditticketComponent } from './editticket/editticket.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -46,9 +49,12 @@ import { EditticketComponent } from './editticket/editticket.component';
     ViewticketComponent,
     AdminComponent,
     ViewticketdetailComponent,
-    EditticketComponent
+    EditticketComponent,
+    ConfirmDialogComponent
   ],
   imports: [
+    MatIconModule,
+    MatDialogModule,
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
