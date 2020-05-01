@@ -20,7 +20,8 @@
               <div *ngIf="invalidLogin" class="alert alert-danger">
                 Invalid username and/or password
               </div>
-            </div class="credentials">
+            </div>
+            
             <mat-form-field class="userName">
               <mat-label>Username</mat-label>
               <input matInput required ngModel name="userName" #userName="ngModel" id="userName" type="text"
@@ -87,11 +88,7 @@
             Response is: {{result}} -->
           </form>
         </div>
-
       </div>
     </div>
-
-
   </div>
-
 </div>
