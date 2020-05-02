@@ -36,10 +36,6 @@ export class CreateticketComponent {
       },
       error => this.error = true
       )
-    // if(!this.error)
-    //   setTimeout(() => {
-    //     this.router.navigate(['/cnfticket'])
-    //   }, 1000);
   }
 
 }

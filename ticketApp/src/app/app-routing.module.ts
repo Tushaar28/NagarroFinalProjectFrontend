@@ -1,7 +1,6 @@
 import { EditticketComponent } from './editticket/editticket.component';
 import { ViewticketdetailComponent } from './viewticketdetail/viewticketdetail.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { CnfticketComponent } from './cnfticket/cnfticket.component';
 import { ViewticketComponent } from './viewticket/viewticket.component';
 import { CreateticketComponent } from './createticket/createticket.component';
 import { AuthGuard } from './services/auth-guard.service';
@@ -22,11 +21,10 @@ const routes: Routes = [
   { path: 'admin/tickets', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard] },
   { path: 'home', component: UserComponent, canActivate: [AuthGuard] },
   { path: 'no-access', component: NoAccessComponent },
-  { path: 'home/ticket/new', component: CreateticketComponent },
-  { path: 'home/ticket/:id', component: ViewticketdetailComponent },
-  { path: 'home/ticket/edit/:id', component: EditticketComponent },
-  { path: 'home/tickets/all', component: ViewticketComponent },
-  { path: 'cnfticket', component: CnfticketComponent },
+  { path: 'home/ticket/new', component: CreateticketComponent, canActivate: [AuthGuard] },
+  { path: 'home/ticket/:id', component: ViewticketdetailComponent, canActivate: [AuthGuard] },
+  { path: 'home/ticket/edit/:id', component: EditticketComponent, canActivate: [AuthGuard] },
+  { path: 'home/tickets/all', component: ViewticketComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '404', component: NotfoundComponent},
   { path: '**', redirectTo: '404'}
