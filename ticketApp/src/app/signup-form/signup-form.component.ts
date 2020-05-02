@@ -9,22 +9,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup-form.component.css']
 })
 export class SignupFormComponent implements OnInit{
+  countries: any = []
+  states: any = []
   showConfirmation = false;
   error: any = null;
   data: any;
   constructor(private http: HttpClient, private router: Router){}
   ngOnInit() {
-    const headers = new HttpHeaders();
-    const url1 = 'https://jsonplaceholder.typicode.com/users';
-    const url2 = 'https://www.universal-tutorial.com/api/countries/';
+    const quota = "http://battuta.medunes.net/api/quota/?key=d3efa1d399e23647962f8d096894d1ca"
     const battuta_url_countries = "http://battuta.medunes.net/api/country/all/?key=d3efa1d399e23647962f8d096894d1ca"
     const battuta_key = "d3efa1d399e23647962f8d096894d1ca";
-    // headers.set('Accept', 'application/json')
-    // .set('api-token', 'uedfbaqmePVpnU-Ui9ktW2Cwbq477q0tDSOPItzbGBJspMmNNeVWBF3wCPoVv8kQPuc')
-    // .set('user-email', 'mukeshrai641@gmail.com');
-
-    // let response = this.http.get(battuta_url_countries);
-    // response.subscribe((data: Response)=>console.log(data));
+    let response = this.http.get(battuta_url_countries);
+    response.subscribe(
+      (data) => this.countries = data
+    )
   }
   submit(values){
     this.showConfirmation = true;
@@ -49,4 +47,14 @@ export class SignupFormComponent implements OnInit{
     this.showConfirmation = false;
   }
   
+  onSelectCountry(value){
+    console.log(value)
+    const battuta_url_states = "http://battuta.medunes.net/api/region/" + value + "/all/?key=d3efa1d399e23647962f8d096894d1ca";
+    let response = this.http.get(battuta_url_states);
+    response.subscribe(
+      (data) => {
+        this.states = data;
+      }
+    )
+  }
 }

@@ -28,13 +28,14 @@
           <!--                                     Business Unit                                                 -->
           <div class="form-group">
             <label for="BU">Business Unit:</label>
-            <input readonly ngModel name="BU" #BU="ngModel" id="BU" type="text" class="form-control" width="10" placeholder="{{ data.BU }}">
+            <input readonly ngModel name="BU" #BU="ngModel" id="BU" type="text" class="form-control" width="10"
+              placeholder="{{ data.BU }}">
           </div>
           <!--                                         Title                                                     -->
           <div class="form-group">
             <label for="title">Title:</label>
-            <input readonly ngModel name="title" #title="ngModel" id="title" type="text" class="form-control"
-              width="10" placeholder="{{ data.title }}">
+            <input readonly ngModel name="title" #title="ngModel" id="title" type="text" class="form-control" width="10"
+              placeholder="{{ data.title }}">
           </div>
           <!--                                      E-mail                                                         -->
           <div class="form-group">
@@ -46,7 +47,7 @@
           <div class="form-group">
             <label for="tel">Telephone:</label>
             <input readonly ngModel name="tel" #tel="ngModel" id="tel" type="text" class="form-control" width="10"
-            placeholder="{{ data.tel }}">
+              placeholder="{{ data.tel }}">
           </div>
           <!--                                          Address 1                                                       -->
           <div class="form-group">
@@ -63,18 +64,20 @@
           <!--                                            City                                                        -->
           <div class="form-group">
             <label for="city">City:</label>
-            <input readonly ngModel name="city" #city="ngModel" id="city" type="text" class="form-control" width="10" placeholder="{{ data.city }}">
+            <input readonly ngModel name="city" #city="ngModel" id="city" type="text" class="form-control" width="10"
+              placeholder="{{ data.city }}">
           </div>
           <!--                                            State                                                      -->
           <div class="form-group">
             <label for="state">State:</label>
-            <input readonly ngModel name="state" #state="ngModel" id="state" type="text" class="form-control"
-              width="10" placeholder="{{ data.state }}">
+            <input readonly ngModel name="state" #state="ngModel" id="state" type="text" class="form-control" width="10"
+              placeholder="{{ data.state }}">
           </div>
           <!--                                            Zip                                                        -->
           <div class="form-group">
             <label for="zip">Zip:</label>
-            <input readonly ngModel name="zip" #zip="ngModel" id="zip" type="number" class="form-control" width="10" placeholder="{{ data.zip }}">
+            <input readonly ngModel name="zip" #zip="ngModel" id="zip" type="number" class="form-control" width="10"
+              placeholder="{{ data.zip }}">
           </div>
           <!--                                            Country                                                    -->
           <div class="form-group">
@@ -147,6 +150,21 @@
               <div *ngIf="tel.errors.pattern">Invalid Telephone Number</div>
             </div>
           </div>
+          <!--                                            Country                                                    -->
+          <div class="form-group">
+            <label for="country">Country</label>
+            <select ngModel #country="ngModel" name="country" id="country" class="form-control"
+              (ngModelChange)="onSelectCountry($event)">
+              <option *ngFor="let row of countries" [value]="row.code">{{ row.name }}</option>
+            </select>
+          </div>
+          <!--                                            State                                                      -->
+          <div class="form-group">
+            <label for="state">State</label>
+            <select ngModel #state="ngModel" name="state" id="state" class="form-control">
+              <option *ngFor="let row of states" [value]="row.region">{{ row.region }}</option>
+            </select>
+          </div>
           <!--                                          Address 1                                                       -->
           <div class="form-group">
             <label for="address1">Address 1:</label>
@@ -173,15 +191,7 @@
               <div *ngIf="city.errors.required">City required</div>
             </div>
           </div>
-          <!--                                            State                                                      -->
-          <div class="form-group">
-            <label for="state">State:</label>
-            <input required ngModel name="state" #state="ngModel" id="state" type="text" class="form-control"
-              width="10">
-            <div class="alert alert-danger" *ngIf="state.touched && !state.valid">
-              <div *ngIf="state.errors.required">State required</div>
-            </div>
-          </div>
+
           <!--                                            Zip                                                        -->
           <div class="form-group">
             <label for="zip">Zip:</label>
@@ -190,15 +200,7 @@
               <div *ngIf="zip.errors.required">Zip required</div>
             </div>
           </div>
-          <!--                                            Country                                                    -->
-          <div class="form-group">
-            <label for="country">Country:</label>
-            <input required ngModel name="country" #country="ngModel" id="country" type="text" class="form-control"
-              width="10">
-            <div class="alert alert-danger" *ngIf="country.touched && !country.valid">
-              <div *ngIf="country.errors.required">Country required</div>
-            </div>
-          </div>
+
           <!-- <p id="mandatory">All fields marked with asterik (*) are mandatory</p> -->
           <p>Upon succesful registration, your password will be sent to your email.</p>
           <!--                                           Submit Button                                              -->
