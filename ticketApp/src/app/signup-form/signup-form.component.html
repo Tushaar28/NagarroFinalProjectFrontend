@@ -6,116 +6,202 @@
     <div class="col-sm-9 col-md-6 col-lg-4" id="signup-form">
       <br>
       <h3>Register With Us!!!</h3>
-      <form method="POST" action="" #f="ngForm" (ngSubmit)="submit(f.value)">
-        <!--                                             First Name                                         -->
-        <div class="form-group">
-          <label for="firstName">First Name:<p><span>*</span></p></label>
-          <input required ngModel name="firstName" #firstName="ngModel" id="firstName" type="text" class="form-control"
-            width="10">
-          <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
-            <div *ngIf="firstName.errors.required">First Name required</div>
+      <!--                                             Confirmation form                               -->
+      <div *ngIf="showConfirmation">
+        <h5>Confirm your details</h5>
+        <form method="POST" action="">
+          <!--                                             First Name                                  -->
+          <div class="form-group">
+            <label for="firstName">First Name:<p><span>*</span></p></label>
+            <input readonly ngModel name="firstName" #firstName="ngModel" id="firstName" type="text"
+              class="form-control" width="10" placeholder="{{ data.firstName }}">
           </div>
-        </div>
-        <!--                                           Last Name                                              -->
-        <div class="form-group">
-          <label for="lastName">Last Name:</label>
-          <input required ngModel name="lastName" #lastName="ngModel" id="lastName" type="text" class="form-control"
-            width="10">
-          <div class="alert alert-danger" *ngIf="lastName.touched && !lastName.valid">
-            <div *ngIf="lastName.errors.required">Last Name required</div>
+          <!--                                           Last Name                                              -->
+          <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input readonly ngModel name="lastName" #lastName="ngModel" id="lastName" type="text" class="form-control"
+              width="10" placeholder="{{ data.lastName }}">
           </div>
-        </div>
-        <!--                                     Business Unit                                                 -->
-        <div class="form-group">
-          <label for="BU">Business Unit:</label>
-          <input required ngModel name="BU" #BU="ngModel" id="BU" type="text" class="form-control" width="10">
-          <div class="alert alert-danger" *ngIf="BU.touched && !BU.valid">
-            <div *ngIf="BU.errors.required">Business Unit required</div>
+          <!--                                     Business Unit                                                 -->
+          <div class="form-group">
+            <label for="BU">Business Unit:</label>
+            <input readonly ngModel name="BU" #BU="ngModel" id="BU" type="text" class="form-control" width="10" placeholder="{{ data.BU }}">
           </div>
-        </div>
-        <!--                                         Title                                                     -->
-        <div class="form-group">
-          <label for="title">Title:</label>
-          <input required ngModel name="title" #title="ngModel" id="title" type="text" class="form-control" width="10">
-          <div class="alert alert-danger" *ngIf="title.touched && !title.valid">
-            <div *ngIf="title.errors.required">Title required</div>
+          <!--                                         Title                                                     -->
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input readonly ngModel name="title" #title="ngModel" id="title" type="text" class="form-control"
+              width="10" placeholder="{{ data.title }}">
           </div>
-        </div>
-        <!--                                      E-mail                                                         -->
-        <div class="form-group">
-          <label for="email">E-mail:</label>
-          <input required ngModel name="email" #email="ngModel" id="email" type="email" class="form-control" width="10"
-            pattern="^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(nagarro)\.com$">
-          <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
-            <div *ngIf="email.errors.required">Email required</div>
-            <div *ngIf="email.errors.pattern">Invalid Email</div>
+          <!--                                      E-mail                                                         -->
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input readonly ngModel name="email" #email="ngModel" id="email" type="email" class="form-control"
+              width="10" placeholder="{{ data.email }}">
           </div>
-        </div>
-        <!--                                        Telephone                                                     -->
-        <div class="form-group">
-          <label for="tel">Telephone:</label>
-          <input required ngModel name="tel" #tel="ngModel" id="tel" type="text" class="form-control" width="10"
-            maxlength="15" pattern="[a-zA-Z0-9\s]+">
-          <div class="alert alert-danger" *ngIf="tel.touched && !tel.valid">
-            <div *ngIf="tel.errors.required">Telephone required</div>
-            <div *ngIf="tel.errors.pattern">Invalid Telephone Number</div>
+          <!--                                        Telephone                                                     -->
+          <div class="form-group">
+            <label for="tel">Telephone:</label>
+            <input readonly ngModel name="tel" #tel="ngModel" id="tel" type="text" class="form-control" width="10"
+            placeholder="{{ data.tel }}">
           </div>
-        </div>
-        <!--                                          Address 1                                                       -->
-        <div class="form-group">
-          <label for="address1">Address 1:</label>
-          <input required ngModel name="address1" #address1="ngModel" id="address1" type="text" class="form-control"
-            width="10">
-          <div class="alert alert-danger" *ngIf="address1.touched && !address1.valid">
-            <div *ngIf="address1.errors.required">Address required</div>
+          <!--                                          Address 1                                                       -->
+          <div class="form-group">
+            <label for="address1">Address 1:</label>
+            <input readonly ngModel name="address1" #address1="ngModel" id="address1" type="text" class="form-control"
+              width="10" placeholder="{{ data.address1 }}">
           </div>
-        </div>
-        <!--                                         Address 2                                                     -->
-        <div class="form-group">
-          <label for="address2">Address 2:</label>
-          <input ngModel name="address2" #address2="ngModel" id="address2" type="text" class="form-control" width="10">
-          <div class="alert alert-danger" *ngIf="address2.touched && !address2.valid">
-            <div *ngIf="address1.errors">Address required</div>
+          <!--                                         Address 2                                                     -->
+          <div class="form-group">
+            <label for="address2">Address 2:</label>
+            <input readonly ngModel name="address2" #address2="ngModel" id="address2" type="text" class="form-control"
+              width="10" placeholder="{{ data.address2 }}">
           </div>
-        </div>
-        <!--                                            City                                                        -->
-        <div class="form-group">
-          <label for="city">City:</label>
-          <input required ngModel name="city" #city="ngModel" id="city" type="text" class="form-control" width="10">
-          <div class="alert alert-danger" *ngIf="city.touched && !city.valid">
-            <div *ngIf="city.errors.required">City required</div>
+          <!--                                            City                                                        -->
+          <div class="form-group">
+            <label for="city">City:</label>
+            <input readonly ngModel name="city" #city="ngModel" id="city" type="text" class="form-control" width="10" placeholder="{{ data.city }}">
           </div>
-        </div>
-        <!--                                            State                                                      -->
-        <div class="form-group">
-          <label for="state">State:</label>
-          <input required ngModel name="state" #state="ngModel" id="state" type="text" class="form-control" width="10">
-          <div class="alert alert-danger" *ngIf="state.touched && !state.valid">
-            <div *ngIf="state.errors.required">State required</div>
+          <!--                                            State                                                      -->
+          <div class="form-group">
+            <label for="state">State:</label>
+            <input readonly ngModel name="state" #state="ngModel" id="state" type="text" class="form-control"
+              width="10" placeholder="{{ data.state }}">
           </div>
-        </div>
-        <!--                                            Zip                                                        -->
-        <div class="form-group">
-          <label for="zip">Zip:</label>
-          <input required ngModel name="zip" #zip="ngModel" id="zip" type="number" class="form-control" width="10">
-          <div class="alert alert-danger" *ngIf="zip.touched && !zip.valid">
-            <div *ngIf="zip.errors.required">Zip required</div>
+          <!--                                            Zip                                                        -->
+          <div class="form-group">
+            <label for="zip">Zip:</label>
+            <input readonly ngModel name="zip" #zip="ngModel" id="zip" type="number" class="form-control" width="10" placeholder="{{ data.zip }}">
           </div>
-        </div>
-        <!--                                            Country                                                    -->
-        <div class="form-group">
-          <label for="country">Country:</label>
-          <input required ngModel name="country" #country="ngModel" id="country" type="text" class="form-control"
-            width="10">
-          <div class="alert alert-danger" *ngIf="country.touched && !country.valid">
-            <div *ngIf="country.errors.required">Country required</div>
+          <!--                                            Country                                                    -->
+          <div class="form-group">
+            <label for="country">Country:</label>
+            <input readonly ngModel name="country" #country="ngModel" id="country" type="text" class="form-control"
+              width="10" placeholder="{{ data.country }}">
           </div>
-        </div>
-        <p id="mandatory">All fields marked with asterik (*) are mandatory</p>
-        <p>Upon succesful registration, your password will be sent to your email.</p>
-        <!--                                           Submit Button                                              -->
-        <button class="btn btn-primary" id="signup-btn" [disabled]="!f.valid">Register</button>
-      </form>
+          <!--                                           Submit Button                                              -->
+          <button class="btn btn-primary" id="signup-btn" (click)="clickConfirm()">Confirm</button>
+          <button class="btn btn-danger" id="signup-btn" (click)="clickEdit()">Edit</button>
+        </form>
+      </div>
+
+
+      <!--                                              Register form                                  -->
+      <div *ngIf="!showConfirmation">
+        <form method="POST" action="" #f="ngForm" (ngSubmit)="submit(f.value)">
+          <!--                                             First Name                                         -->
+          <div class="form-group">
+            <label for="firstName">First Name:<p><span>*</span></p></label>
+            <input required ngModel name="firstName" #firstName="ngModel" id="firstName" type="text"
+              class="form-control" width="10">
+            <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+              <div *ngIf="firstName.errors.required">First Name required</div>
+            </div>
+          </div>
+          <!--                                           Last Name                                              -->
+          <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input required ngModel name="lastName" #lastName="ngModel" id="lastName" type="text" class="form-control"
+              width="10">
+            <div class="alert alert-danger" *ngIf="lastName.touched && !lastName.valid">
+              <div *ngIf="lastName.errors.required">Last Name required</div>
+            </div>
+          </div>
+          <!--                                     Business Unit                                                 -->
+          <div class="form-group">
+            <label for="BU">Business Unit:</label>
+            <input required ngModel name="BU" #BU="ngModel" id="BU" type="text" class="form-control" width="10">
+            <div class="alert alert-danger" *ngIf="BU.touched && !BU.valid">
+              <div *ngIf="BU.errors.required">Business Unit required</div>
+            </div>
+          </div>
+          <!--                                         Title                                                     -->
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input required ngModel name="title" #title="ngModel" id="title" type="text" class="form-control"
+              width="10">
+            <div class="alert alert-danger" *ngIf="title.touched && !title.valid">
+              <div *ngIf="title.errors.required">Title required</div>
+            </div>
+          </div>
+          <!--                                      E-mail                                                         -->
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input required ngModel name="email" #email="ngModel" id="email" type="email" class="form-control"
+              width="10" pattern="^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(nagarro)\.com$">
+            <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+              <div *ngIf="email.errors.required">Email required</div>
+              <div *ngIf="email.errors.pattern">Invalid Email</div>
+            </div>
+          </div>
+          <!--                                        Telephone                                                     -->
+          <div class="form-group">
+            <label for="tel">Telephone:</label>
+            <input required ngModel name="tel" #tel="ngModel" id="tel" type="text" class="form-control" width="10"
+              maxlength="15" pattern="[a-zA-Z0-9\s]+">
+            <div class="alert alert-danger" *ngIf="tel.touched && !tel.valid">
+              <div *ngIf="tel.errors.required">Telephone required</div>
+              <div *ngIf="tel.errors.pattern">Invalid Telephone Number</div>
+            </div>
+          </div>
+          <!--                                          Address 1                                                       -->
+          <div class="form-group">
+            <label for="address1">Address 1:</label>
+            <input required ngModel name="address1" #address1="ngModel" id="address1" type="text" class="form-control"
+              width="10">
+            <div class="alert alert-danger" *ngIf="address1.touched && !address1.valid">
+              <div *ngIf="address1.errors.required">Address required</div>
+            </div>
+          </div>
+          <!--                                         Address 2                                                     -->
+          <div class="form-group">
+            <label for="address2">Address 2:</label>
+            <input ngModel name="address2" #address2="ngModel" id="address2" type="text" class="form-control"
+              width="10">
+            <div class="alert alert-danger" *ngIf="address2.touched && !address2.valid">
+              <div *ngIf="address1.errors">Address required</div>
+            </div>
+          </div>
+          <!--                                            City                                                        -->
+          <div class="form-group">
+            <label for="city">City:</label>
+            <input required ngModel name="city" #city="ngModel" id="city" type="text" class="form-control" width="10">
+            <div class="alert alert-danger" *ngIf="city.touched && !city.valid">
+              <div *ngIf="city.errors.required">City required</div>
+            </div>
+          </div>
+          <!--                                            State                                                      -->
+          <div class="form-group">
+            <label for="state">State:</label>
+            <input required ngModel name="state" #state="ngModel" id="state" type="text" class="form-control"
+              width="10">
+            <div class="alert alert-danger" *ngIf="state.touched && !state.valid">
+              <div *ngIf="state.errors.required">State required</div>
+            </div>
+          </div>
+          <!--                                            Zip                                                        -->
+          <div class="form-group">
+            <label for="zip">Zip:</label>
+            <input required ngModel name="zip" #zip="ngModel" id="zip" type="number" class="form-control" width="10">
+            <div class="alert alert-danger" *ngIf="zip.touched && !zip.valid">
+              <div *ngIf="zip.errors.required">Zip required</div>
+            </div>
+          </div>
+          <!--                                            Country                                                    -->
+          <div class="form-group">
+            <label for="country">Country:</label>
+            <input required ngModel name="country" #country="ngModel" id="country" type="text" class="form-control"
+              width="10">
+            <div class="alert alert-danger" *ngIf="country.touched && !country.valid">
+              <div *ngIf="country.errors.required">Country required</div>
+            </div>
+          </div>
+          <!-- <p id="mandatory">All fields marked with asterik (*) are mandatory</p> -->
+          <p>Upon succesful registration, your password will be sent to your email.</p>
+          <!--                                           Submit Button                                              -->
+          <button class="btn btn-primary" id="signup-btn" [disabled]="!f.valid">Register</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

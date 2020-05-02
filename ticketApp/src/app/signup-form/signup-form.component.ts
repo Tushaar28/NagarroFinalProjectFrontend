@@ -1,7 +1,6 @@
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { Router } from '@angular/router';
-import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
-import { RegCnfComponent } from './../reg-cnf/reg-cnf.component';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup-form.component.css']
 })
 export class SignupFormComponent implements OnInit{
+  showConfirmation = false;
+  error: any;
+  data: any;
   constructor(private http: HttpClient, private router: Router){}
   ngOnInit() {
-    //console.log("Clicked");
     const headers = new HttpHeaders();
     const url1 = 'https://jsonplaceholder.typicode.com/users';
     const url2 = 'https://www.universal-tutorial.com/api/countries/';
@@ -25,21 +26,24 @@ export class SignupFormComponent implements OnInit{
     // let response = this.http.get(battuta_url_countries);
     // response.subscribe((data: Response)=>console.log(data));
   }
-  data;
   submit(values){
-    let error: Boolean;
-    //console.log(values);
-    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+    this.showConfirmation = true;
+    this.data = values
+  }
+
+  clickConfirm(){
+    let error: boolean;
     let url = "http://localhost:8040/register"
-    // const headers = new HttpHeaders();
-    // headers.set('Authorization', 'Bearer ' + token);
-    // headers.set('Accept', 'application/json');
-    let response = this.http.post(url, values);
-    response.subscribe((data: Response)=>console.log(data))
-    //After successful registration
-    error = true;
-    setTimeout(()=> this.router.navigate(['/login']), 3000);
-    
+    let response = this.http.post(url, this.data);
+    response.subscribe(
+      (data: Response) => this.router.navigate(['/login']),
+      (error) => this.error = error
+    )
+  }
+
+  clickEdit(){
+    this.data = null;
+    this.showConfirmation = false;
   }
   
 }

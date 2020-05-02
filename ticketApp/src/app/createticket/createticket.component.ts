@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./createticket.component.css']
 })
 export class CreateticketComponent {
+  showConfirmation = false;
   ticketTypes: string[] = ["Travel Tickets", "Hotel Stay", "Work Permit", "Visa"]
   arr: any;
   error: Boolean = false;
@@ -29,6 +30,7 @@ export class CreateticketComponent {
       data => {
         console.log(data);
         this.arr = data;
+        this.showConfirmation = true;
       },
       error => this.error = true
       )
