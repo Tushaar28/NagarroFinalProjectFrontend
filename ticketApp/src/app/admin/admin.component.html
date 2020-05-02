@@ -32,8 +32,11 @@
                 <div *ngIf = "ticket.status == -1">
                     Rejected
                 </div>
-                <div *ngIf = "ticket.status == 0">
+                <div *ngIf = "ticket.status == 0 && !ticket.isProcessing">
                     Pending
+                </div>
+                <div *ngIf="ticket.status == 0 && ticket.isProcessing">
+                    Processing
                 </div>
                 <div *ngIf = "ticket.status == 1">
                     Approved

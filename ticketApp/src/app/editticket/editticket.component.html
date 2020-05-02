@@ -1,6 +1,9 @@
 <app-user></app-user>
 
 <div class="container-fluid">
+    <div *ngIf="error" class="alert alert-danger">
+        Error updating ticket. Please try later.
+    </div>
     <form method="post" #f="ngForm" (ngSubmit)="submit(f.value)">
         <!--                                     Ticket Type                                     -->
         <div class="form-group">

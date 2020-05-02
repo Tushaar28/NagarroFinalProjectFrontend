@@ -15,7 +15,7 @@ export class ViewticketComponent implements OnInit {
   pageSize = 5;
   collectionSize: number;
   constructor(private http: HttpClient,
-    public router: Router) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};

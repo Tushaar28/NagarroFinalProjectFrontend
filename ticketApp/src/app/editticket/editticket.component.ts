@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class EditticketComponent implements OnInit {
   id: any;
   data: any;
-  error: any;
+  error: any = null;
   constructor(private router: Router,
     private http: HttpClient,
     private activatedroute: ActivatedRoute) { }
@@ -24,11 +24,21 @@ export class EditticketComponent implements OnInit {
           this.id = ''
       }
     )
-    console.log(this.id)
+    //console.log(this.id)
   }
 
   submit(data){
-    
+    const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
+    const url = 'http://localhost:8040/editticket/' + this.id
+    let response = this.http.patch(url, data, { 'headers': headers })
+    response.subscribe(
+      (data) => {
+        console.log(data);
+        this.router.navigate(['/home/tickets/all']);
+      },
+      (error) => this.error = error
+    )
+    //console.log("Button clicked")
   }
 
   onClickReset(){

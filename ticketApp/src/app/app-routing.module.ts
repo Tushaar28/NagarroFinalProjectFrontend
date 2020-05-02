@@ -1,3 +1,4 @@
+import { GetusersComponent } from './admin/getusers/getusers.component';
 import { DemoapiComponent } from './demoapi/demoapi.component';
 import { EditticketComponent } from './editticket/editticket.component';
 import { ViewticketdetailComponent } from './viewticketdetail/viewticketdetail.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'register', component: SignupFormComponent },
   { path: 'forgot', component: ForgotPasswordComponent },
   { path: 'admin/tickets', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard] },
+  { path: 'admin/users', component: GetusersComponent, canActivate: [AuthGuard, AdminAuthGuard] },
   { path: 'home', component: UserComponent, canActivate: [AuthGuard] },
   { path: 'no-access', component: NoAccessComponent },
   { path: 'home/ticket/new', component: CreateticketComponent, canActivate: [AuthGuard] },
