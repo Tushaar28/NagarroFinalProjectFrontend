@@ -35,6 +35,7 @@ import { ViewticketdetailComponent } from './viewticketdetail/viewticketdetail.c
 import { EditticketComponent } from './editticket/editticket.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DemoapiComponent } from './demoapi/demoapi.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AdminComponent,
     ViewticketdetailComponent,
     EditticketComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    DemoapiComponent
   ],
   imports: [
     MatIconModule,

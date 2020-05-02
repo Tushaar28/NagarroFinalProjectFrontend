@@ -1,3 +1,4 @@
+import { DemoapiComponent } from './demoapi/demoapi.component';
 import { EditticketComponent } from './editticket/editticket.component';
 import { ViewticketdetailComponent } from './viewticketdetail/viewticketdetail.component';
 import { NotfoundComponent } from './notfound/notfound.component';
@@ -15,6 +16,7 @@ import { NoAccessComponent } from './no-access/no-access.component';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
 
 const routes: Routes = [
+  { path: 'demo', component: DemoapiComponent },
   { path: 'login', component: LoginFormComponent },
   { path: 'register', component: SignupFormComponent },
   { path: 'forgot', component: ForgotPasswordComponent },
