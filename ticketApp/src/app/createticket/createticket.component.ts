@@ -30,14 +30,16 @@ export class CreateticketComponent {
       data => {
         console.log(data);
         this.arr = data;
+        console.log(this.arr.id)
+        this.router.navigate(['/home/ticket', this.arr.id])
         this.showConfirmation = true;
       },
       error => this.error = true
       )
-    if(!this.error)
-      setTimeout(() => {
-        this.router.navigate(['/cnfticket'])
-      }, 1000);
+    // if(!this.error)
+    //   setTimeout(() => {
+    //     this.router.navigate(['/cnfticket'])
+    //   }, 1000);
   }
 
 }

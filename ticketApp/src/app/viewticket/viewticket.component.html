@@ -2,7 +2,7 @@
 <table class="table">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">Id</th>
+            <th scope="col">Sr. No.</th>
             <th scope="col">Type</th>
             <th scope="col">Priority</th>
             <th scope="col">Status</th>
@@ -10,8 +10,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let row of data;let i = index" (click) = "getId(row.id)">
-            <td>{{data[i].id }}</td>
+        <tr *ngFor="let row of data;let i = index" (click)="getId(row.id)">
+            <td>{{ i+1 }}</td>
             <td>{{ data[i].type }}</td>
             <td>
                 <div *ngIf="data[i].priority == 3">
@@ -41,8 +41,9 @@
             <td>
                 <!-- <p>{{ !row.isProcessing && row.status == 0 }}</p> -->
                 <button class="btn btn-primary" [disabled]="row.isProcessing || row.status != 0"
-                (click)="clickEdit(row.id)">Edit</button>
+                    (click)="clickEdit(row.id)">Edit</button>
             </td>
         </tr>
     </tbody>
 </table>
+<ngb-pagination [(page)]="page" pageSize="5" [collectionSize]="collectionSize"></ngb-pagination>

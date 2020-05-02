@@ -35,6 +35,7 @@ import { CreateticketComponent } from './createticket/createticket.component';
 import { ViewticketdetailComponent } from './viewticketdetail/viewticketdetail.component';
 import { EditticketComponent } from './editticket/editticket.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     ViewticketComponent,

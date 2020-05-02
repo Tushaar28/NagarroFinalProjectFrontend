@@ -10,7 +10,10 @@ import { HttpClient } from '@angular/common/http';
 export class ViewticketComponent implements OnInit {
   error: any;
   data: any;
-  id: any
+  id: any;
+  page = 1;
+  pageSize = 5;
+  collectionSize: number;
   constructor(private http: HttpClient,
     public router: Router) { }
 
@@ -21,7 +24,8 @@ export class ViewticketComponent implements OnInit {
     response.subscribe(
       data => {
         this.data = data;
-        //console.log(data);
+        //console.log(this.data);
+        this.collectionSize = this.data.length;
       },
       error => {
         this.error = error;

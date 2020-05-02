@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupFormComponent implements OnInit{
   showConfirmation = false;
-  error: any;
+  error: any = null;
   data: any;
   constructor(private http: HttpClient, private router: Router){}
   ngOnInit() {
@@ -37,7 +37,10 @@ export class SignupFormComponent implements OnInit{
     let response = this.http.post(url, this.data);
     response.subscribe(
       (data: Response) => this.router.navigate(['/login']),
-      (error) => this.error = error
+      (error) => {
+        this.error = error;
+        console.log(this.error.error.message)
+      }
     )
   }
 

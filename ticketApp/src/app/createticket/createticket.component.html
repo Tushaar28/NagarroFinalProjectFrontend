@@ -2,9 +2,6 @@
 
 <div class="container-fluid">
     <!--                                          Ticket Confirmation                             -->
-    <div *ngIf="showConfirmation">
-        
-    </div>
     <!--                                          Submit Ticket                                   -->
     <div *ngIf="!showConfirmation">
         <form method="post" #f="ngForm" (ngSubmit)="submit(f.value)">
