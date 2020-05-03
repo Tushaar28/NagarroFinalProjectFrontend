@@ -12,7 +12,7 @@ export class EdituserComponent implements OnInit {
   states: any = []
   email = ""
   user: any;
-  error: any;
+  error = null;
   constructor(private activatedroute: ActivatedRoute,
     private http: HttpClient,
     private router: Router) { }
@@ -43,11 +43,19 @@ export class EdituserComponent implements OnInit {
   }
 
   submit(data){
-    
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json' }
+    const url = "http://localhost:8040/edituser/" + this.email
+    let response = this.http.patch(url, data, { 'headers': headers })
+    response.subscribe(
+      (data) => console.log(data),
+      (error) => this.error = error
+    )
+      if(!this.error)
+        this.router.navigate(['/home'])
   }
 
   clickCancel(){
-    this.router.navigate(['/home/user/view/', this.email])
+    this.router.navigate(['/home'])
   }
 
   onSelectCountry(value){

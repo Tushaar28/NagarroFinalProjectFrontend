@@ -26,12 +26,17 @@ export class ViewticketComponent implements OnInit {
         this.data = data;
         //console.log(this.data);
         this.collectionSize = this.data.length;
+        console.log(this.data.map((row, i) => ({id: i+1, ...this.data})).slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize))
       },
       error => {
         this.error = error;
         console.log(error);
       }
     )
+  }
+
+  get data_split(){
+    return this.data.map((row, i) => ({id: i+1, ...row})).slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize)
   }
 
   getId(id){

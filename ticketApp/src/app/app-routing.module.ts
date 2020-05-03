@@ -1,3 +1,4 @@
+import { UserdetailComponent } from './userdetail/userdetail.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { GetusersComponent } from './admin/getusers/getusers.component';
 import { DemoapiComponent } from './demoapi/demoapi.component';
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'admin/users', component: GetusersComponent, canActivate: [AuthGuard, AdminAuthGuard] },
   { path: 'home', component: UserComponent, canActivate: [AuthGuard] },
   { path: 'no-access', component: NoAccessComponent },
-  { path: 'home/user/view/:id', component: GetuserdetailComponent, canActivate: [AuthGuard] },
+  { path: 'home/account', component: UserdetailComponent, canActivate: [AuthGuard]},
+  { path: 'home/user/view/:id', component: GetuserdetailComponent, canActivate: [AuthGuard, AdminAuthGuard] },
   { path: 'home/user/edit/:id', component: EdituserComponent, canActivate: [AuthGuard] },
   { path: 'home/ticket/new', component: CreateticketComponent, canActivate: [AuthGuard] },
   { path: 'home/ticket/:id', component: ViewticketdetailComponent, canActivate: [AuthGuard] },

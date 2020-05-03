@@ -10,31 +10,31 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let row of data;let i = index" (click)="getId(row.id)">
-            <td>{{ i+1 }}</td>
-            <td>{{ data[i].type }}</td>
+        <tr *ngFor="let row of data_split;let i = index" (click)="getId(row.id)">
+            <td>{{ row.id }}</td>
+            <td>{{ row.type }}</td>
             <td>
-                <div *ngIf="data[i].priority == 3">
+                <div *ngIf="row.priority == 3">
                     Low
                 </div>
-                <div *ngIf="data[i].priority == 2">
+                <div *ngIf="row.priority == 2">
                     Medium
                 </div>
-                <div *ngIf="data[i].priority == 1">
+                <div *ngIf="row.priority == 1">
                     High
                 </div>
             </td>
             <td>
-                <div *ngIf="data[i].status == -1">
+                <div *ngIf="row.status == -1">
                     Rejected
                 </div>
-                <div *ngIf="data[i].status == 0 && !data[i].isProcessing">
+                <div *ngIf="row.status == 0 && !row.isProcessing">
                     Pending
                 </div>
-                <div *ngIf="data[i].status == 0 && data[i].isProcessing">
+                <div *ngIf="row.status == 0 && row.isProcessing">
                     Processing
                 </div>
-                <div *ngIf="data[i].status == 1">
+                <div *ngIf="row.status == 1">
                     Approved
                 </div>
             </td>

@@ -1,4 +1,7 @@
 <div class="container">
+  <div *ngIf="error" class="alert alert-danger">
+    Cannot update user details Please try later.
+  </div>
   <form method="POST" action="" #f="ngForm" (ngSubmit)="submit(f.value)">
     <!--                                             First Name                                         -->
     <div class="form-group">
@@ -39,12 +42,7 @@
     <!--                                      E-mail                                                         -->
     <div class="form-group">
       <label for="email">E-mail:</label>
-      <input required ngModel name="email" #email="ngModel" id="email" type="email" class="form-control" width="10"
-        pattern="^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(nagarro)\.com$" placeholder="{{ user.email }}">
-      <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
-        <div *ngIf="email.errors.required">Email required</div>
-        <div *ngIf="email.errors.pattern">Invalid Email</div>
-      </div>
+      <input readonly class="form-control" width="10" placeholder="{{ user.email }}">
     </div>
     <!--                                        Telephone                                                     -->
     <div class="form-group">

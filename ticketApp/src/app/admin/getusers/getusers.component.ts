@@ -22,7 +22,6 @@ export class GetusersComponent implements OnInit {
     response.subscribe(
       data => {
         this.data = data;
-        //console.log(data);
       },
       error => {
         this.error = error;
@@ -31,14 +30,17 @@ export class GetusersComponent implements OnInit {
   }
 
   edit(user, i){
-    const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
-    const url = "http://localhost:8040/edituser";
+    this.router.navigate(['/home/user/edit/', user.email])
   }
 
   remove(user, i){
     const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
-    const url = "http://localhost:8040/deleteuser";
-    
+    const url = "http://localhost:8040/deleteuser" + user.email;
+    let response = this.http.delete(url, { 'headers': headers })
+    response.subscribe(
+      (data) => null,
+      (error) => this.error = error
+    )
   }
 
   getId(email){

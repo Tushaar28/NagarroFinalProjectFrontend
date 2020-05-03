@@ -14,6 +14,12 @@
         <li class="nav-item" *ngIf="!currentUser.admin">
           <a class="nav-link" href="home/tickets/all">All Tickets</a>
         </li>
+        <li class="nav-item" *ngIf="!currentUser.admin">
+          <a class="nav-link" href="home/account">Edit account details</a>
+        </li>
+        <li class="nav-item" *ngIf="!currentUser.admin">
+          <a class="nav-link" href="home/account">Delete account</a>
+        </li>
         <li class="nav-item" *ngIf="currentUser.admin">
           <a class="nav-link" href="/admin/tickets">Tickets Panel</a>
         </li>
