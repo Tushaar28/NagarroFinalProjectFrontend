@@ -22,7 +22,7 @@ export class GetusersComponent implements OnInit {
     response.subscribe(
       data => {
         this.data = data;
-        console.log(data);
+        //console.log(data);
       },
       error => {
         this.error = error;
@@ -42,7 +42,7 @@ export class GetusersComponent implements OnInit {
   }
 
   getId(email){
-    this.router.navigate(['/home/user/view'])
+    this.router.navigate(['/home/user/view', email])
   }
 
 }

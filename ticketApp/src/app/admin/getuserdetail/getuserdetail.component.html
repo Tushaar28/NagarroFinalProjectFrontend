@@ -1,1 +1,69 @@
-<p>getuserdetail works!</p>
+<app-user></app-user>
+<div class="container">
+    <form method="POST" action="">
+        <!--                                             First Name                                         -->
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input readonly placeholder="{{ user.fName }}" type="text" class="form-control" width="10">
+        </div>
+        <!--                                           Last Name                                              -->
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input readonly placeholder="{{ user.lName }}" type="text" class="form-control" width="10">
+        </div>
+        <!--                                     Business Unit                                                 -->
+        <div class="form-group">
+            <label for="BU">Business Unit:</label>
+            <input readonly placeholder="{{ user.BU }}" type="text" class="form-control" width="10">
+        </div>
+        <!--                                         Title                                                     -->
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input readonly placeholder="{{ user.title }}" type="text" class="form-control" width="10">
+        </div>
+        <!--                                      E-mail                                                         -->
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input readonly placeholder="{{ user.email }}" type="text" class="form-control" width="10">
+        </div>
+        <!--                                        Telephone                                                     -->
+        <div class="form-group">
+            <label for="tel">Telephone:</label>
+            <input readonly placeholder="{{ user.tel }}" type="text" class="form-control" width="10">
+        </div>
+        <!--                                            Country                                                    -->
+        <div class="form-group">
+            <label for="country">Country</label>
+            <input readonly placeholder="{{ user.country }}" type="text" class="form-control" width="10">
+        </div>
+        <!--                                            State                                                      -->
+        <div class="form-group">
+            <label for="state">State</label>
+            <input readonly placeholder="{{ user.state }}" type="text" class="form-control" width="10">
+        </div>
+        <!--                                            City                                                        -->
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input readonly placeholder="{{ user.city }}" type="text" class="form-control" width="10">
+        </div>
+        <!--                                          Address 1                                                       -->
+        <div class="form-group">
+            <label for="address1">Address 1:</label>
+            <input readonly placeholder="{{ user.address1 }}" type="text" class="form-control" width="10">
+        </div>
+        <!--                                         Address 2                                                     -->
+        <div class="form-group">
+            <label for="address2">Address 2:</label>
+            <input readonly placeholder="{{ user.address2 }}" type="text" class="form-control" width="10">
+        </div>
+
+        <!--                                            Zip                                                        -->
+        <div class="form-group">
+            <label for="zip">Zip:</label>
+            <input readonly placeholder="{{ user.zip }}" type="text" class="form-control" width="10">
+        </div>
+        <!--                                           Submit Button                                              -->
+        <button class="btn btn-primary" (click)="clickEdit()">Edit</button>
+        <button class="btn btn-danger" (click)="clickBack()">Back</button>
+    </form>
+</div>

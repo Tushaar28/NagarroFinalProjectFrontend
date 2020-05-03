@@ -1,3 +1,4 @@
+import { EdituserComponent } from './edituser/edituser.component';
 import { GetusersComponent } from './admin/getusers/getusers.component';
 import { DemoapiComponent } from './demoapi/demoapi.component';
 import { EditticketComponent } from './editticket/editticket.component';
@@ -15,6 +16,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { UserComponent } from './user/user.component';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
+import { GetuserdetailComponent } from './admin/getuserdetail/getuserdetail.component';
 
 const routes: Routes = [
   { path: 'demo', component: DemoapiComponent },
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'admin/users', component: GetusersComponent, canActivate: [AuthGuard, AdminAuthGuard] },
   { path: 'home', component: UserComponent, canActivate: [AuthGuard] },
   { path: 'no-access', component: NoAccessComponent },
+  { path: 'home/user/view/:id', component: GetuserdetailComponent, canActivate: [AuthGuard] },
+  { path: 'home/user/edit/:id', component: EdituserComponent, canActivate: [AuthGuard] },
   { path: 'home/ticket/new', component: CreateticketComponent, canActivate: [AuthGuard] },
   { path: 'home/ticket/:id', component: ViewticketdetailComponent, canActivate: [AuthGuard] },
   { path: 'home/ticket/edit/:id', component: EditticketComponent, canActivate: [AuthGuard] },
