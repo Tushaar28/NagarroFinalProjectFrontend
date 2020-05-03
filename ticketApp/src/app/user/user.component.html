@@ -18,7 +18,7 @@
           <a class="nav-link" href="home/account">Edit account details</a>
         </li>
         <li class="nav-item" *ngIf="!currentUser.admin">
-          <a class="nav-link" href="home/account">Delete account</a>
+          <a class="nav-link" (click) = "clickDelete()">Delete account</a>
         </li>
         <li class="nav-item" *ngIf="currentUser.admin">
           <a class="nav-link" href="/admin/tickets">Tickets Panel</a>
@@ -34,3 +34,6 @@
       </span>
     </div>
   </nav>
+  <div *ngIf="error" class="alert alert-danger">
+    An error occured. Please try again.
+  </div>

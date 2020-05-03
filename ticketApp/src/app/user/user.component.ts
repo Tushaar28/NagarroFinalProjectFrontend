@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
@@ -10,7 +11,10 @@ import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
 export class UserComponent implements OnInit {
   currentUser: any;
   token: any;
-  constructor(private router: Router) { }
+  resp;
+  error = null;
+  constructor(private router: Router,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
     let token = localStorage.getItem('token')
@@ -28,5 +32,18 @@ export class UserComponent implements OnInit {
   }
   isLoggedIn() {
     return tokenNotExpired('token');
+  }
+  clickDelete(){
+    const email = localStorage.getItem('id')
+    const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
+    const url = 'http://localhost:8040/deleteuser/' + email
+    let response = this.http.delete(url, { 'headers': headers })
+    response.subscribe(
+      (data) => {
+        this.resp = data;
+        this.logout()
+      },
+      (error) => this.error = error
+    )
   }
 }

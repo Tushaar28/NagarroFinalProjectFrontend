@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./getusers.component.css']
 })
 export class GetusersComponent implements OnInit {
-  error: any;
+  error: any = null;
   data: any;
   i = 0;
   page = 1;
@@ -34,14 +34,14 @@ export class GetusersComponent implements OnInit {
 
   edit(user, i){
     this.router.navigate(['/home/user/edit/', user.email])
-  }
+  } 
 
   remove(user, i){
     const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
     const url = "http://localhost:8040/deleteuser" + user.email;
     let response = this.http.delete(url, { 'headers': headers })
     response.subscribe(
-      (data) => null,
+      (data) => this.router.navigate(['/home']),
       (error) => this.error = error
     )
   }
