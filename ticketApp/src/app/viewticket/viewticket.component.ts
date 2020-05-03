@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./viewticket.component.css']
 })
 export class ViewticketComponent implements OnInit {
-  error: any;
+  error: any = null;
   data: any;
   id: any;
   page = 1;
@@ -24,13 +24,10 @@ export class ViewticketComponent implements OnInit {
     response.subscribe(
       data => {
         this.data = data;
-        //console.log(this.data);
         this.collectionSize = this.data.length;
-        console.log(this.data.map((row, i) => ({id: i+1, ...this.data})).slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize))
-      },
+        },
       error => {
         this.error = error;
-        console.log(error);
       }
     )
   }

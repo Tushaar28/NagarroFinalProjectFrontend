@@ -1,4 +1,7 @@
 <app-user></app-user>
+<div *ngIf="error" class="alert alert-danger">
+    Unable to fetch records. Please try again
+</div>
 <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -12,8 +15,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of data;let i = index" (click) = "getId(user.email)">
-            <td>{{ i + 1 }}</td>
+        <tr *ngFor="let user of data_split;let i = index" (click) = "getId(user.email)">
+            <td>{{ user.id }}</td>
             <td>{{ user.fName }}</td>
             <td>{{ user.lName }}</td>
             <td>{{ user.email }}</td>

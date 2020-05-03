@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetuserdetailComponent implements OnInit {
   user: any;
-  error: any;
+  error: any = null;
   email = "";
   constructor(private activatedroute: ActivatedRoute,
     private http: HttpClient,

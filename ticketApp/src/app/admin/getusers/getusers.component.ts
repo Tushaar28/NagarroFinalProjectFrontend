@@ -11,7 +11,9 @@ export class GetusersComponent implements OnInit {
   error: any;
   data: any;
   i = 0;
-  
+  page = 1;
+  pageSize = 5;
+  collectionSize: number;
   constructor(private http: HttpClient,
     private router: Router) { }
 
@@ -22,6 +24,7 @@ export class GetusersComponent implements OnInit {
     response.subscribe(
       data => {
         this.data = data;
+        this.collectionSize = this.data.length;
       },
       error => {
         this.error = error;
@@ -45,6 +48,10 @@ export class GetusersComponent implements OnInit {
 
   getId(email){
     this.router.navigate(['/home/user/view', email])
+  }
+  
+  get data_split(){
+    return this.data.map((row, i) => ({id: i+1, ...row})).slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize)
   }
 
 }

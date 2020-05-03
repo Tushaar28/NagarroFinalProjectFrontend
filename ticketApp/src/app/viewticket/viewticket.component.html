@@ -1,4 +1,7 @@
 <app-user></app-user>
+<div *ngIf="error" class="alert alert-danger">
+    Unable to fetch records. Please try again
+</div>
 <table class="table">
     <thead class="thead-dark">
         <tr>
