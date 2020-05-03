@@ -1,3 +1,4 @@
+import { HomepagebodyComponent } from './homepagebody/homepagebody.component';
 import { UserdetailComponent } from './userdetail/userdetail.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { GetusersComponent } from './admin/getusers/getusers.component';
@@ -26,7 +27,7 @@ const routes: Routes = [
   { path: 'forgot', component: ForgotPasswordComponent },
   { path: 'admin/tickets', component: AdminComponent, canActivate: [AuthGuard, AdminAuthGuard] },
   { path: 'admin/users', component: GetusersComponent, canActivate: [AuthGuard, AdminAuthGuard] },
-  { path: 'home', component: UserComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomepagebodyComponent, canActivate: [AuthGuard] },
   { path: 'no-access', component: NoAccessComponent },
   { path: 'home/account', component: UserdetailComponent, canActivate: [AuthGuard]},
   { path: 'home/user/view/:id', component: GetuserdetailComponent, canActivate: [AuthGuard, AdminAuthGuard] },

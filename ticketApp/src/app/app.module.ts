@@ -40,6 +40,7 @@ import { GetusersComponent } from './admin/getusers/getusers.component';
 import { GetuserdetailComponent } from './admin/getuserdetail/getuserdetail.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { UserdetailComponent } from './userdetail/userdetail.component';
+import { HomepagebodyComponent } from './homepagebody/homepagebody.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { UserdetailComponent } from './userdetail/userdetail.component';
     GetusersComponent,
     GetuserdetailComponent,
     EdituserComponent,
-    UserdetailComponent
+    UserdetailComponent,
+    HomepagebodyComponent
   ],
   imports: [
     MatIconModule,
