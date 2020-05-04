@@ -1,4 +1,3 @@
-import { ConfirmDialogComponent, ConfirmDialogModel } from './../confirm-dialog/confirm-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from './../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -22,16 +21,6 @@ export class LoginFormComponent implements OnInit {
     private authService: AuthService) {
 
   }
-
-  confirmDialog(){
-    const message = "Are you sure you want to do this?"
-    const dialogData = new ConfirmDialogModel("Confirm Action", message);
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      maxWidth: "400px",
-      data: dialogData
-    })
-    dialogRef.afterClosed().subscribe(dialogResult => {
-      this.result = dialogResult;})}
 
   ngOnInit() {
     const token = localStorage.getItem('token')

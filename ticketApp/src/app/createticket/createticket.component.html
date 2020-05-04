@@ -1,19 +1,10 @@
 <app-user></app-user>
 
 <div class="container-fluid">
-    <!--                                          Ticket Confirmation                             -->
-    <!--                                          Submit Ticket                                   -->
     <div *ngIf="!showConfirmation">
-        <form method="post" #f="ngForm" (ngSubmit)="submit(f.value)">
+        <form method="post" #f="ngForm" (ngSubmit)="openDialog(f.value)">
             <!--                                     Ticket Type                                     -->
             <div class="form-group">
-                <!-- <label id="type-label">Ticket Type</label><br>
-            <mat-radio-group required aria-labelledby="type-label" class="type" ngModel
-                name="type" #type="ngModel">
-                <mat-radio-button required class="example-radio-button" *ngFor="let ticket of ticketTypes" [value]="ticket">
-                    {{ ticket }}
-                </mat-radio-button>
-            </mat-radio-group> -->
                 <label for="type">Ticket Type</label>
                 <div class="radio">
                     <label for="travel">
@@ -72,21 +63,44 @@
                     <div *ngIf="priority.errors?.required">Priority required</div>
                 </div>
             </div>
-            <!--                                       Destination                                        -->
+            <!--                                       Destination Country                                  -->
             <div class="form-group">
-                <label for="dest">Travel City</label>
-                <input required ngModel name="dest" #dest="ngModel" id="dest" type="text" class="form-control"
-                    width="10">
-                <div class="alert alert-danger" *ngIf="dest.touched && !dest.valid">
-                    <div *ngIf="dest.errors?.required">Travel city required</div>
+                <label for="destCountry">Destination Country</label>
+                <select required ngModel #destCountry="ngModel" name="destCountry" id="destCountry"
+                    class="form-control">
+                    <option *ngFor="let row of countries" [value]="row.name">{{ row.name }}</option>
+                </select>
+                <div class="alert alert-danger" *ngIf="destCountry.touched && !destCountry.valid">
+                    <div *ngIf="destCountry.errors.required">Field Required</div>
                 </div>
             </div>
-            <!--                                          Source                                           -->
+            <!--                                       Destination City                                     -->
             <div class="form-group">
-                <label for="src">Origin City</label>
-                <input required ngModel name="src" #src="ngModel" id="src" type="text" class="form-control" width="10">
-                <div class="alert alert-danger" *ngIf="src.touched && !src.valid">
-                    <div *ngIf="src.errors?.required">Origin city required</div>
+                <label for="destCity">Travel City</label>
+                <input required ngModel name="destCity" #destCity="ngModel" id="destCity" type="text"
+                    class="form-control" width="10">
+                <div class="alert alert-danger" *ngIf="destCity.touched && !destCity.valid">
+                    <div *ngIf="destCity.errors?.required">Travel city required</div>
+                </div>
+            </div>
+            <!--                                          Source Country                                       -->
+            <div class="form-group">
+                <label for="srcCountry">Origin Country</label>
+                <select required ngModel #srcCountry="ngModel" name="srcCountry" id="srcCountry"
+                    class="form-control">
+                    <option *ngFor="let row of countries" [value]="row.name">{{ row.name }}</option>
+                </select>
+                <div class="alert alert-danger" *ngIf="srcCountry.touched && !srcCountry.valid">
+                    <div *ngIf="srcCountry.errors.required">Field Required</div>
+                </div>
+            </div>
+            <!--                                          Source City                                         -->
+            <div class="form-group">
+                <label for="srcCity">Origin City</label>
+                <input required ngModel name="srcCity" #srcCity="ngModel" id="srcCity" type="text" class="form-control"
+                    width="10">
+                <div class="alert alert-danger" *ngIf="srcCity.touched && !srcCity.valid">
+                    <div *ngIf="srcCity.errors?.required">Origin city required</div>
                 </div>
             </div>
             <!--                                            Start Date                                      -->

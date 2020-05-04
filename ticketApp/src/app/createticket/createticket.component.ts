@@ -1,3 +1,5 @@
+import { MatDialog } from '@angular/material/dialog';
+import { GraphDialogComponent } from './../graph-dialog/graph-dialog.component';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -8,15 +10,25 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./createticket.component.css']
 })
 export class CreateticketComponent {
+  countries: any = []
   showConfirmation = false;
   ticketTypes: string[] = ["Travel Tickets", "Hotel Stay", "Work Permit", "Visa"]
   arr: any;
   error: Boolean = false;
   //data: Response;
   constructor(private router: Router,
-    private http: HttpClient) {
-    //const battuta_url_countries = "http://battuta.medunes.net/api/country/all/?key=d3efa1d399e23647962f8d096894d1ca"
-   }
+    private http: HttpClient,
+    public dialog: MatDialog) { }
+
+   ngOnInit() {
+    const quota = "http://battuta.medunes.net/api/quota/?key=d3efa1d399e23647962f8d096894d1ca"
+    const battuta_url_countries = "http://battuta.medunes.net/api/country/all/?key=d3efa1d399e23647962f8d096894d1ca"
+    const battuta_key = "d3efa1d399e23647962f8d096894d1ca";
+    let response = this.http.get(battuta_url_countries);
+    response.subscribe(
+      (data) => this.countries = data
+    )
+  }
 
   onClickReset(){
     this.router.navigate['/home'];
@@ -36,6 +48,23 @@ export class CreateticketComponent {
       },
       error => this.error = true
       )
+  }
+
+  openDialog(values){
+    console.log(values)
+    const dialogRef = this.dialog.open(GraphDialogComponent, {
+      height: '600px',
+      width: '600px',
+      data: values.destCountry
+      })
+
+    dialogRef.afterClosed().subscribe(
+      result => {
+        console.log("Yes")
+        if(result)
+          this.submit(values)
+      }
+    )
   }
 
 }

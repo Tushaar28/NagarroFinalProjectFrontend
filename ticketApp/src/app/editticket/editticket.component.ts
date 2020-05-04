@@ -11,6 +11,7 @@ export class EditticketComponent implements OnInit {
   id: any;
   data: any;
   error: any = null;
+  countries: any = []
   constructor(private router: Router,
     private http: HttpClient,
     private activatedroute: ActivatedRoute) { }
@@ -24,7 +25,13 @@ export class EditticketComponent implements OnInit {
           this.id = ''
       }
     )
-    //console.log(this.id)
+    const quota = "http://battuta.medunes.net/api/quota/?key=d3efa1d399e23647962f8d096894d1ca"
+    const battuta_url_countries = "http://battuta.medunes.net/api/country/all/?key=d3efa1d399e23647962f8d096894d1ca"
+    const battuta_key = "d3efa1d399e23647962f8d096894d1ca";
+    let response = this.http.get(battuta_url_countries);
+    response.subscribe(
+      (data) => this.countries = data
+    )
   }
 
   submit(data){
@@ -33,12 +40,10 @@ export class EditticketComponent implements OnInit {
     let response = this.http.patch(url, data, { 'headers': headers })
     response.subscribe(
       (data) => {
-        console.log(data);
         this.router.navigate(['/home/tickets/all']);
       },
       (error) => this.error = error
     )
-    //console.log("Button clicked")
   }
 
   onClickReset(){

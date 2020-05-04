@@ -1,0 +1,12 @@
+<div mat-dialog-content>
+    <div id="container">
+        <div *ngIf="chart" class="chart-container" style="position: relative;height: 400px;width: 400px;margin-top: 30px">
+            <canvas id="canvas">{{ chart }}</canvas>
+        </div>
+    </div>
+    <p><b>Do you still want to continue?</b></p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Yes</button>
+</div>

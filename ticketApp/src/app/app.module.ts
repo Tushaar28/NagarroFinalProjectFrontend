@@ -33,7 +33,6 @@ import { NoAccessComponent } from './no-access/no-access.component';
 import { CreateticketComponent } from './createticket/createticket.component';
 import { ViewticketdetailComponent } from './viewticketdetail/viewticketdetail.component';
 import { EditticketComponent } from './editticket/editticket.component';
-import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DemoapiComponent } from './demoapi/demoapi.component';
 import { GetusersComponent } from './admin/getusers/getusers.component';
@@ -42,6 +41,7 @@ import { EdituserComponent } from './edituser/edituser.component';
 import { UserdetailComponent } from './userdetail/userdetail.component';
 import { HomepagebodyComponent } from './homepagebody/homepagebody.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { GraphDialogComponent } from './graph-dialog/graph-dialog.component';
 
 @NgModule({
   declarations: [
@@ -57,14 +57,14 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     AdminComponent,
     ViewticketdetailComponent,
     EditticketComponent,
-    ConfirmDialogComponent,
     DemoapiComponent,
     GetusersComponent,
     GetuserdetailComponent,
     EdituserComponent,
     UserdetailComponent,
     HomepagebodyComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    GraphDialogComponent
   ],
   imports: [
     MatIconModule,
@@ -89,7 +89,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     NgbModule
   ],
   entryComponents: [
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    GraphDialogComponent
   ],
   providers: [
     ViewticketComponent,

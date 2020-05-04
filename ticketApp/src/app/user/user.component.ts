@@ -15,7 +15,6 @@ export class UserComponent implements OnInit {
   token: any;
   resp;
   error = null;
-  delConfirmation = false;
 
   constructor(private router: Router,
     private http: HttpClient,
@@ -40,7 +39,6 @@ export class UserComponent implements OnInit {
   }
 
   delete() {
-    this.delConfirmation = true;
     const email = localStorage.getItem('id')
     const headers = { 'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json' };
     const url = 'http://localhost:8040/deleteuser/' + email
