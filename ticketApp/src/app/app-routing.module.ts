@@ -2,7 +2,6 @@ import { HomepagebodyComponent } from './homepagebody/homepagebody.component';
 import { UserdetailComponent } from './userdetail/userdetail.component';
 import { EdituserComponent } from './edituser/edituser.component';
 import { GetusersComponent } from './admin/getusers/getusers.component';
-import { DemoapiComponent } from './demoapi/demoapi.component';
 import { EditticketComponent } from './editticket/editticket.component';
 import { ViewticketdetailComponent } from './viewticketdetail/viewticketdetail.component';
 import { NotfoundComponent } from './notfound/notfound.component';
@@ -21,7 +20,6 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { GetuserdetailComponent } from './admin/getuserdetail/getuserdetail.component';
 
 const routes: Routes = [
-  { path: 'demo', component: DemoapiComponent },
   { path: 'login', component: LoginFormComponent },
   { path: 'register', component: SignupFormComponent },
   { path: 'forgot', component: ForgotPasswordComponent },

@@ -34,7 +34,6 @@ import { CreateticketComponent } from './createticket/createticket.component';
 import { ViewticketdetailComponent } from './viewticketdetail/viewticketdetail.component';
 import { EditticketComponent } from './editticket/editticket.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { DemoapiComponent } from './demoapi/demoapi.component';
 import { GetusersComponent } from './admin/getusers/getusers.component';
 import { GetuserdetailComponent } from './admin/getuserdetail/getuserdetail.component';
 import { EdituserComponent } from './edituser/edituser.component';
@@ -57,7 +56,6 @@ import { GraphDialogComponent } from './graph-dialog/graph-dialog.component';
     AdminComponent,
     ViewticketdetailComponent,
     EditticketComponent,
-    DemoapiComponent,
     GetusersComponent,
     GetuserdetailComponent,
     EdituserComponent,

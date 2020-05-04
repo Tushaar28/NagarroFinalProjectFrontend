@@ -125,7 +125,7 @@
             <div class="form-group">
                 <label for="passport">Passport</label>
                 <input required ngModel name="passport" #passport="ngModel" id="passport" type="text"
-                    class="form-control" width="10">
+                    class="form-control" width="10" maxlength="25">
                 <div class="alert alert-danger" *ngIf="passport.touched && !passport.valid">
                     <div *ngIf="passport.errors?.required">Passport required</div>
                 </div>
@@ -134,7 +134,7 @@
             <div class="form-group">
                 <label for="project">Project Name</label>
                 <input required ngModel name="project" #project="ngModel" id="project" type="text" class="form-control"
-                    width="10">
+                    width="10" maxlength="100">
                 <div class="alert alert-danger" *ngIf="project.touched && !project.valid">
                     <div *ngIf="project.errors?.required">Project Name required</div>
                 </div>
@@ -162,7 +162,7 @@
             <div class="form-group">
                 <label for="approver">Travel Approver Name</label>
                 <input ngModel name="approver" #approver="ngModel" id="approver" type="text" class="form-control"
-                    width="10">
+                    width="10" maxlength="100">
                 <div class="alert alert-danger" *ngIf="approver.touched && !approver.valid">
                     <div *ngIf="approver.errors?.required">Travel Approver Name required</div>
                 </div>
@@ -208,7 +208,7 @@
             <div class="form-group">
                 <label for="details">Aditional Details</label>
                 <input required ngModel name="details" #details="ngModel" id="details" type="text" class="form-control"
-                    width="10">
+                    width="10" maxlength="1000">
                 <div class="alert alert-danger" *ngIf="details.touched && !details.valid">
                     <div *ngIf="details.errors?.required">Details required</div>
                 </div>
