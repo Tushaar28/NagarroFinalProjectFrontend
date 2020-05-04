@@ -41,9 +41,11 @@ import { GetuserdetailComponent } from './admin/getuserdetail/getuserdetail.comp
 import { EdituserComponent } from './edituser/edituser.component';
 import { UserdetailComponent } from './userdetail/userdetail.component';
 import { HomepagebodyComponent } from './homepagebody/homepagebody.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
+    ConfirmationDialogComponent,
     AppComponent,
     LoginFormComponent,
     SignupFormComponent,
@@ -61,7 +63,8 @@ import { HomepagebodyComponent } from './homepagebody/homepagebody.component';
     GetuserdetailComponent,
     EdituserComponent,
     UserdetailComponent,
-    HomepagebodyComponent
+    HomepagebodyComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     MatIconModule,
@@ -84,6 +87,9 @@ import { HomepagebodyComponent } from './homepagebody/homepagebody.component';
     AppRoutingModule,
     HttpClientModule,
     NgbModule
+  ],
+  entryComponents: [
+    ConfirmationDialogComponent
   ],
   providers: [
     ViewticketComponent,

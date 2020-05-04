@@ -1,39 +1,40 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
-    <p class="navbar-brand" >Welcome {{ this.currentUser.firstName + " " + this.currentUser.lastName }}</p>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item" *ngIf="!currentUser.admin">
-          <a class="nav-link" href="home/ticket/new">New Ticket</a>
-        </li>
-        <li class="nav-item" *ngIf="!currentUser.admin">
-          <a class="nav-link" href="home/tickets/all">All Tickets</a>
-        </li>
-        <li class="nav-item" *ngIf="!currentUser.admin">
-          <a class="nav-link" href="home/account">Edit account details</a>
-        </li>
-        <li class="nav-item" *ngIf="!currentUser.admin">
-          <a class="nav-link" (click) = "clickDelete()">Delete account</a>
-        </li>
-        <li class="nav-item" *ngIf="currentUser.admin">
-          <a class="nav-link" href="/admin/tickets">Tickets Panel</a>
-        </li>
-        <li class="nav-item" *ngIf="currentUser.admin">
-          <a class="nav-link" href="/admin/users">Users Panel</a>
-        </li>
-      </ul>
-      <span class="navbar-text">
-        <div *ngIf="isLoggedIn()">
-            <a href = "" (click)="logout()">Logout</a>
-        </div>
-      </span>
-    </div>
-  </nav>
-  <div *ngIf="error" class="alert alert-danger">
-    An error occured. Please try again.
+  <p class="navbar-brand">Welcome {{ this.currentUser.firstName + " " + this.currentUser.lastName }}</p>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" *ngIf="!currentUser.admin">
+        <a class="nav-link" href="home/ticket/new">New Ticket</a>
+      </li>
+      <li class="nav-item" *ngIf="!currentUser.admin">
+        <a class="nav-link" href="home/tickets/all">All Tickets</a>
+      </li>
+      <li class="nav-item" *ngIf="!currentUser.admin">
+        <a class="nav-link" href="home/account">Edit account details</a>
+      </li>
+      <li class="nav-item" *ngIf="!currentUser.admin">
+        <a class="nav-link" (click)="openDialog()">Delete account</a>
+      </li>
+      <li class="nav-item" *ngIf="currentUser.admin">
+        <a class="nav-link" href="/admin/tickets">Tickets Panel</a>
+      </li>
+      <li class="nav-item" *ngIf="currentUser.admin">
+        <a class="nav-link" href="/admin/users">Users Panel</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <div *ngIf="isLoggedIn()">
+        <a href="" (click)="logout()">Logout</a>
+      </div>
+    </span>
   </div>
+</nav>
+<div *ngIf="error" class="alert alert-danger">
+  An error occured. Please try again.
+</div>

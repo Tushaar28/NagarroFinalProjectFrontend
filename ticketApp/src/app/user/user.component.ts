@@ -1,7 +1,9 @@
+import { ConfirmationDialogComponent } from './../confirmation-dialog/confirmation-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { tokenNotExpired, JwtHelper } from 'angular2-jwt';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user',
@@ -13,8 +15,11 @@ export class UserComponent implements OnInit {
   token: any;
   resp;
   error = null;
+  delConfirmation = false;
+
   constructor(private router: Router,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     let token = localStorage.getItem('token')
@@ -33,9 +38,11 @@ export class UserComponent implements OnInit {
   isLoggedIn() {
     return tokenNotExpired('token');
   }
-  clickDelete(){
+
+  delete() {
+    this.delConfirmation = true;
     const email = localStorage.getItem('id')
-    const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
+    const headers = { 'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json' };
     const url = 'http://localhost:8040/deleteuser/' + email
     let response = this.http.delete(url, { 'headers': headers })
     response.subscribe(
@@ -44,6 +51,20 @@ export class UserComponent implements OnInit {
         this.logout()
       },
       (error) => this.error = error
+    )
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '350px',
+      data: "Do you want to delete your account?"
+    })
+    
+    dialogRef.afterClosed().subscribe(
+      result => {
+        if (result)
+          this.delete()
+      }
     )
   }
 }
