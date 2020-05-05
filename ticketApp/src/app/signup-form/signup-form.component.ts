@@ -1,4 +1,4 @@
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import * as html2pdf from 'html2pdf.js'
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -47,8 +47,24 @@ export class SignupFormComponent implements OnInit{
     this.showConfirmation = false;
   }
   
+  clickPrint(){
+    console.log("Print clicked")
+    const options = {
+      filename: 'User Details.pdf',
+      image: { type: 'jpeg' },
+      jsPDF: { orientation: 'portrait' }
+    }
+
+    const element = document.getElementById("deatils")
+    console.log("Printing")
+    html2pdf()
+    .from(element)
+    .set(options)
+    .save()
+    console.log("Printed")
+  }
+
   onSelectCountry(value){
-    console.log(value)
     const battuta_url_states = "http://battuta.medunes.net/api/region/" + value + "/all/?key=d3efa1d399e23647962f8d096894d1ca";
     let response = this.http.get(battuta_url_states);
     response.subscribe(

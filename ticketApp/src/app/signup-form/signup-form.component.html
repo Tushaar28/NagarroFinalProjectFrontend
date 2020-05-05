@@ -13,81 +13,84 @@
       <div *ngIf="showConfirmation">
         <h5>Confirm your details</h5>
         <form method="POST" action="">
-          <!--                                             First Name                                  -->
-          <div class="form-group">
-            <label for="firstName">First Name:<p><span>*</span></p></label>
-            <input readonly ngModel name="firstName" #firstName="ngModel" id="firstName" type="text"
-              class="form-control" width="10" placeholder="{{ data.firstName }}">
-          </div>
-          <!--                                           Last Name                                              -->
-          <div class="form-group">
-            <label for="lastName">Last Name:</label>
-            <input readonly ngModel name="lastName" #lastName="ngModel" id="lastName" type="text" class="form-control"
-              width="10" placeholder="{{ data.lastName }}">
-          </div>
-          <!--                                     Business Unit                                                 -->
-          <div class="form-group">
-            <label for="BU">Business Unit:</label>
-            <input readonly ngModel name="BU" #BU="ngModel" id="BU" type="text" class="form-control" width="10"
-              placeholder="{{ data.BU }}">
-          </div>
-          <!--                                         Title                                                     -->
-          <div class="form-group">
-            <label for="title">Title:</label>
-            <input readonly ngModel name="title" #title="ngModel" id="title" type="text" class="form-control" width="10"
-              placeholder="{{ data.title }}">
-          </div>
-          <!--                                      E-mail                                                         -->
-          <div class="form-group">
-            <label for="email">E-mail:</label>
-            <input readonly ngModel name="email" #email="ngModel" id="email" type="email" class="form-control"
-              width="10" placeholder="{{ data.email }}">
-          </div>
-          <!--                                        Telephone                                                     -->
-          <div class="form-group">
-            <label for="tel">Telephone:</label>
-            <input readonly ngModel name="tel" #tel="ngModel" id="tel" type="text" class="form-control" width="10"
-              placeholder="{{ data.tel }}">
-          </div>
-          <!--                                          Address 1                                                       -->
-          <div class="form-group">
-            <label for="address1">Address 1:</label>
-            <input readonly ngModel name="address1" #address1="ngModel" id="address1" type="text" class="form-control"
-              width="10" placeholder="{{ data.address1 }}">
-          </div>
-          <!--                                         Address 2                                                     -->
-          <div class="form-group">
-            <label for="address2">Address 2:</label>
-            <input readonly ngModel name="address2" #address2="ngModel" id="address2" type="text" class="form-control"
-              width="10" placeholder="{{ data.address2 }}">
-          </div>
-          <!--                                            City                                                        -->
-          <div class="form-group">
-            <label for="city">City:</label>
-            <input readonly ngModel name="city" #city="ngModel" id="city" type="text" class="form-control" width="10"
-              placeholder="{{ data.city }}">
-          </div>
-          <!--                                            State                                                      -->
-          <div class="form-group">
-            <label for="state">State:</label>
-            <input readonly ngModel name="state" #state="ngModel" id="state" type="text" class="form-control" width="10"
-              placeholder="{{ data.state }}">
-          </div>
-          <!--                                            Zip                                                        -->
-          <div class="form-group">
-            <label for="zip">Zip:</label>
-            <input readonly ngModel name="zip" #zip="ngModel" id="zip" type="number" class="form-control" width="10"
-              placeholder="{{ data.zip }}">
-          </div>
-          <!--                                            Country                                                    -->
-          <div class="form-group">
-            <label for="country">Country:</label>
-            <input readonly ngModel name="country" #country="ngModel" id="country" type="text" class="form-control"
-              width="10" placeholder="{{ data.country }}">
+          <div id="details">
+            <!--                                             First Name                                  -->
+            <div class="form-group">
+              <label for="firstName">First Name:</label>
+              <input readonly ngModel name="firstName" #firstName="ngModel" id="firstName" type="text"
+                class="form-control" width="10" placeholder="{{ data.firstName }}">
+            </div>
+            <!--                                           Last Name                                              -->
+            <div class="form-group">
+              <label for="lastName">Last Name:</label>
+              <input readonly ngModel name="lastName" #lastName="ngModel" id="lastName" type="text" class="form-control"
+                width="10" placeholder="{{ data.lastName }}">
+            </div>
+            <!--                                     Business Unit                                                 -->
+            <div class="form-group">
+              <label for="BU">Business Unit:</label>
+              <input readonly ngModel name="BU" #BU="ngModel" id="BU" type="text" class="form-control" width="10"
+                placeholder="{{ data.BU }}">
+            </div>
+            <!--                                         Title                                                     -->
+            <div class="form-group">
+              <label for="title">Title:</label>
+              <input readonly ngModel name="title" #title="ngModel" id="title" type="text" class="form-control"
+                width="10" placeholder="{{ data.title }}">
+            </div>
+            <!--                                      E-mail                                                         -->
+            <div class="form-group">
+              <label for="email">E-mail:</label>
+              <input readonly ngModel name="email" #email="ngModel" id="email" type="email" class="form-control"
+                width="10" placeholder="{{ data.email }}">
+            </div>
+            <!--                                        Telephone                                                     -->
+            <div class="form-group">
+              <label for="tel">Telephone:</label>
+              <input readonly ngModel name="tel" #tel="ngModel" id="tel" type="text" class="form-control" width="10"
+                placeholder="{{ data.tel }}">
+            </div>
+            <!--                                          Address 1                                                       -->
+            <div class="form-group">
+              <label for="address1">Address 1:</label>
+              <input readonly ngModel name="address1" #address1="ngModel" id="address1" type="text" class="form-control"
+                width="10" placeholder="{{ data.address1 }}">
+            </div>
+            <!--                                         Address 2                                                     -->
+            <div class="form-group">
+              <label for="address2">Address 2:</label>
+              <input readonly ngModel name="address2" #address2="ngModel" id="address2" type="text" class="form-control"
+                width="10" placeholder="{{ data.address2 }}">
+            </div>
+            <!--                                            City                                                        -->
+            <div class="form-group">
+              <label for="city">City:</label>
+              <input readonly ngModel name="city" #city="ngModel" id="city" type="text" class="form-control" width="10"
+                placeholder="{{ data.city }}">
+            </div>
+            <!--                                            State                                                      -->
+            <div class="form-group">
+              <label for="state">State:</label>
+              <input readonly ngModel name="state" #state="ngModel" id="state" type="text" class="form-control"
+                width="10" placeholder="{{ data.state }}">
+            </div>
+            <!--                                            Zip                                                        -->
+            <div class="form-group">
+              <label for="zip">Zip:</label>
+              <input readonly ngModel name="zip" #zip="ngModel" id="zip" type="number" class="form-control" width="10"
+                placeholder="{{ data.zip }}">
+            </div>
+            <!--                                            Country                                                    -->
+            <div class="form-group">
+              <label for="country">Country:</label>
+              <input readonly ngModel name="country" #country="ngModel" id="country" type="text" class="form-control"
+                width="10" placeholder="{{ data.country }}">
+            </div>
           </div>
           <!--                                           Submit Button                                              -->
           <button class="btn btn-primary" id="signup-btn" (click)="clickConfirm()">Confirm</button>
           <button class="btn btn-danger" id="signup-btn" (click)="clickEdit()">Edit</button>
+          <button class="btn btn-warn" id="print-btn" (click) = "clickPrint()">Print</button>
         </form>
       </div>
 

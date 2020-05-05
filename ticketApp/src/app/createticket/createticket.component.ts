@@ -30,7 +30,7 @@ export class CreateticketComponent {
     )
   }
 
-  onClickReset(){
+  clickCancel(){
     this.router.navigate['/home'];
   }
 

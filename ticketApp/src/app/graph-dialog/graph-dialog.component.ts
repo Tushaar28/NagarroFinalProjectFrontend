@@ -48,7 +48,7 @@ export class GraphDialogComponent {
         this.chart = new Chart('canvas', {
           type: 'line',
           data: {
-            labels: 'Corona Stats',
+            labels: '',
             datasets: [
               {
                 label: 'Confirmed',
@@ -77,6 +77,10 @@ export class GraphDialogComponent {
             ]
           },
           options: {
+            title: {
+              display: true,
+              text: "Coronavirus Stats"
+            },
             legend: {
               display: true
             },

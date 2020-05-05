@@ -11,5 +11,11 @@ img{
 }
 
 #conatiner{
-    height: 100vh;
+    height: 75vh;
+}
+
+#footer{
+    text-align: center;
+    background-color:  #CCCC00;
+    height: 6vh;
 }
