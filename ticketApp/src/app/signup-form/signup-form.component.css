@@ -1,8 +1,6 @@
-#bkg-img{
-    opacity: 0.3;
-}
-#login-form{
-    margin-top: 30px;
+
+#signup-form{
+    margin-left: 470px;
 }
 .form-control.ng-touched.ng-invalid{
     border: 2px solid red;
@@ -10,4 +8,8 @@
 p{
     color: red;
     font-size: 11px;
+}
+
+.row{
+   background-color: #3b9fb1;
 }

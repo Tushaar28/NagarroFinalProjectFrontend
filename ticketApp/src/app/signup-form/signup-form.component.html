@@ -1,9 +1,6 @@
 <div class="conatiner-fluid">
   <div class="row">
-    <div class="col-sm-3 col-md-6 col-lg-8">
-      <img src="assets/media/img/background.jpg" id="bkg-img">
-    </div>
-    <div class="col-sm-9 col-md-6 col-lg-4" id="signup-form">
+    <div id="signup-form">
       <br>
       <div *ngIf="error" class="alert alert-danger">
         {{ error.error.message }}
@@ -100,7 +97,7 @@
         <form method="POST" action="" #f="ngForm" (ngSubmit)="submit(f.value)">
           <!--                                             First Name                                         -->
           <div class="form-group">
-            <label for="firstName">First Name:<p><span>*</span></p></label>
+            <label for="firstName">First Name:</label>
             <input required ngModel name="firstName" #firstName="ngModel" id="firstName" type="text"
               class="form-control" width="10">
             <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
