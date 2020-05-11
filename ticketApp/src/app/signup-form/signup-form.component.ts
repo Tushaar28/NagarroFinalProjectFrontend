@@ -1,4 +1,4 @@
-import * as html2pdf from 'html2pdf.js'
+import * as html2pdf from 'html2pdf.js';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -48,20 +48,17 @@ export class SignupFormComponent implements OnInit{
   }
   
   clickPrint(){
-    console.log("Print clicked")
     const options = {
       filename: 'User Details.pdf',
       image: { type: 'jpeg' },
       jsPDF: { orientation: 'portrait' }
     }
 
-    const element = document.getElementById("deatils")
-    console.log("Printing")
+    const element = document.getElementById("details")
     html2pdf()
     .from(element)
     .set(options)
     .save()
-    console.log("Printed")
   }
 
   onSelectCountry(value){

@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let ticket of data;let i = index;">
+        <tr *ngFor="let ticket of data;let i = index;" (click)="getId(ticket.id)">
             <td>{{ i + 1 }}</td>
             <td>{{ ticket.issuedBy }}</td>
             <td>{{ ticket.email }}</td>

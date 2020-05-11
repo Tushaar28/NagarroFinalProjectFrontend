@@ -1,3 +1,4 @@
+import * as html2pdf from 'html2pdf.js'
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -47,4 +48,19 @@ export class ViewticketdetailComponent implements OnInit {
   clickBack(){
     this.router.navigate(['/home/tickets/all'])
   }
+  clickPrint(){
+    const options = {
+      filename: 'Ticket Details.pdf',
+      image: { type: 'jpeg' },
+      jsPDF: { orientation: 'landscape' }
+    }
+
+    const element = document.getElementById("details")
+    html2pdf()
+    .from(element)
+    .set(options)
+    .save()
+  }
 }
+
+

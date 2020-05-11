@@ -1,144 +1,146 @@
 <app-user></app-user>
-
-<div class="conatiner-fluid">
-    <form method="post" #f="ngForm" id="form">
-        <!--                                      Ticket Type                                         -->
-        <div class="form-group">
-            <label for="type">Ticket Type</label>
-            <div [ngSwitch]="data.type">
-                <div *ngSwitchCase="'travel'">
-                    <input type="text" readonly placeholder="Travel Tickets">
-                </div>
-                <div *ngSwitchCase="'hotel'">
-                    <input type="text" readonly placeholder="Hotel Stay">
-                </div>
-                <div *ngSwitchCase="'work'">
-                    <input type="text" readonly placeholder="Work Permit">
-                </div>
-                <div *ngSwitchCase="'visa'">
-                    <input type="text" readonly placeholder="Work Permit">
-                </div>
-            </div>
-        </div>
-        <!--                                 Priority                            -->
-        <div class="form-group">
-            <label for="priority">Priority</label>
-            <div [ngSwitch]="data.priority">
-                <div *ngSwitchCase="'1'">
-                    <input type="text" readonly placeholder="High">
-                </div>
-                <div *ngSwitchCase="'2'">
-                    <input type="text" readonly placeholder="Medium">
-                </div>
-                <div *ngSwitchCase="'3'">
-                    <input type="text" readonly placeholder="Low">
+<div id="details">
+    <div class="conatiner-fluid">
+        <form method="post" #f="ngForm" id="form">
+            <!--                                      Ticket Type                                         -->
+            <div class="form-group">
+                <label for="type">Ticket Type</label>
+                <div [ngSwitch]="data.type">
+                    <div *ngSwitchCase="'travel'">
+                        <input type="text" readonly placeholder="Travel Tickets">
+                    </div>
+                    <div *ngSwitchCase="'hotel'">
+                        <input type="text" readonly placeholder="Hotel Stay">
+                    </div>
+                    <div *ngSwitchCase="'work'">
+                        <input type="text" readonly placeholder="Work Permit">
+                    </div>
+                    <div *ngSwitchCase="'visa'">
+                        <input type="text" readonly placeholder="Work Permit">
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--                                        Destination Country                          -->
-        <div class="form-group">
-            <label for="destCountry">Travel Country</label>
-            <div>
-                <input type="text" readonly placeholder="{{ data.destCountry }}">
-            </div>
-        </div>
-        <!--                                        Destination City                            -->
-        <div class="form-group">
-            <label for="destCity">Travel City</label>
-            <div>
-                <input type="text" readonly placeholder="{{ data.destCity }}">
-            </div>
-        </div>
-        <!--                                        Source Country                              -->
-        <div class="form-group">
-            <label for="srcCountry">Origin Country</label>
-            <div>
-                <input type="text" readonly placeholder="{{ data.srcCountry }}">
-            </div>
-        </div>
-        <!--                                        Source City                                -->
-        <div class="form-group">
-            <label for="srcCity">Origin City</label>
-            <div>
-                <input type="text" readonly placeholder="{{ data.srcCity }}">
-            </div>
-        </div>
-        <!--                                        Start Date                       -->
-        <div class="form-group">
-            <label for="start_date">Start Date</label>
-            <div>
-                <input type="text" readonly placeholder="{{ data.start_date }}">
-            </div>
-        </div>
-        <!--                                         End Date                        -->
-        <div class="form-group">
-            <label for="end_date">End Date</label>
-            <div>
-                <input type="text" readonly placeholder="{{ data.end_date }}">
-            </div>
-        </div>
-        <!--                                          Passport                         -->
-        <div class="form-group">
-            <label for="passport">Passport</label>
-            <div>
-                <input type="text" readonly placeholder="{{ data.passport }}">
-            </div>
-        </div>
-        <!--                                           Project Name                    -->
-        <div class="form-group">
-            <label for="project">Project Name</label>
-            <div>
-                <input type="text" readonly placeholder="{{ data.project }}">
-            </div>
-        </div>
-        <!--                                            Expense Borne By                -->
-        <div class="form-group">
-            <label for="expense">Expense Borne By</label>
-            <div [ngSwitch]="data.bearer">
-                <div *ngSwitchCase="'1'">
-                    <input type="text" readonly placeholder="Self">
-                </div>
-                <div *ngSwitchCase="'0'">
-                    <input type="text" readonly placeholder="Nagarro">
+            <!--                                 Priority                            -->
+            <div class="form-group">
+                <label for="priority">Priority</label>
+                <div [ngSwitch]="data.priority">
+                    <div *ngSwitchCase="'1'">
+                        <input type="text" readonly placeholder="High">
+                    </div>
+                    <div *ngSwitchCase="'2'">
+                        <input type="text" readonly placeholder="Medium">
+                    </div>
+                    <div *ngSwitchCase="'3'">
+                        <input type="text" readonly placeholder="Low">
+                    </div>
                 </div>
             </div>
-        </div>
-        <!--                                              Travel Approver               -->
-        <div class="form-group">
-            <div *ngIf="data.approver != '' ">
-                <label for="approver">Travel Approver Name</label>
+            <!--                                        Destination Country                          -->
+            <div class="form-group">
+                <label for="destCountry">Travel Country</label>
                 <div>
-                    <input type="text" readonly placeholder="{{ data.approver }}">
+                    <input type="text" readonly placeholder="{{ data.destCountry }}">
                 </div>
             </div>
-        </div>
-        <!--                                                Duration                     -->
-        <div class="form-group">
-            <label for="duration">Duration(in days)</label>
-            <div>
-                <input type="text" readonly placeholder="{{ data.duration }}">
-            </div>
-        </div>
-        <!--                                                Cost Limit                   -->
-        <div class="form-group">
-            <div *ngIf="data.limit != '' ">
-                <label for="limit">Upper Bound on Cost</label>
+            <!--                                        Destination City                            -->
+            <div class="form-group">
+                <label for="destCity">Travel City</label>
                 <div>
-                    <input type="text" readonly placeholder="{{ data.limit }}">
+                    <input type="text" readonly placeholder="{{ data.destCity }}">
                 </div>
             </div>
-        </div>
-        <!--                                                Additional Details            -->
-        <div class="form-group">
-            <label for="details">Additional Details</label>
-            <div>
-                <input type="text" readonly placeholder="{{ data.details }}">
+            <!--                                        Source Country                              -->
+            <div class="form-group">
+                <label for="srcCountry">Origin Country</label>
+                <div>
+                    <input type="text" readonly placeholder="{{ data.srcCountry }}">
+                </div>
             </div>
-        </div>
-        <!--                                                 Buttons                      -->
-        <div *ngIf="!data.isProcessing && data.status == 0">
-            <button class="btn btn-primary" (click)="clickEdit()">Edit</button>
-        </div>
+            <!--                                        Source City                                -->
+            <div class="form-group">
+                <label for="srcCity">Origin City</label>
+                <div>
+                    <input type="text" readonly placeholder="{{ data.srcCity }}">
+                </div>
+            </div>
+            <!--                                        Start Date                       -->
+            <div class="form-group">
+                <label for="start_date">Start Date</label>
+                <div>
+                    <input type="text" readonly placeholder="{{ data.start_date }}">
+                </div>
+            </div>
+            <!--                                         End Date                        -->
+            <div class="form-group">
+                <label for="end_date">End Date</label>
+                <div>
+                    <input type="text" readonly placeholder="{{ data.end_date }}">
+                </div>
+            </div>
+            <!--                                          Passport                         -->
+            <div class="form-group">
+                <label for="passport">Passport</label>
+                <div>
+                    <input type="text" readonly placeholder="{{ data.passport }}">
+                </div>
+            </div>
+            <!--                                           Project Name                    -->
+            <div class="form-group">
+                <label for="project">Project Name</label>
+                <div>
+                    <input type="text" readonly placeholder="{{ data.project }}">
+                </div>
+            </div>
+            <!--                                            Expense Borne By                -->
+            <div class="form-group">
+                <label for="expense">Expense Borne By</label>
+                <div [ngSwitch]="data.bearer">
+                    <div *ngSwitchCase="'1'">
+                        <input type="text" readonly placeholder="Self">
+                    </div>
+                    <div *ngSwitchCase="'0'">
+                        <input type="text" readonly placeholder="Nagarro">
+                    </div>
+                </div>
+            </div>
+            <!--                                              Travel Approver               -->
+            <div class="form-group">
+                <div *ngIf="data.approver != '' ">
+                    <label for="approver">Travel Approver Name</label>
+                    <div>
+                        <input type="text" readonly placeholder="{{ data.approver }}">
+                    </div>
+                </div>
+            </div>
+            <!--                                                Duration                     -->
+            <div class="form-group">
+                <label for="duration">Duration(in days)</label>
+                <div>
+                    <input type="text" readonly placeholder="{{ data.duration }}">
+                </div>
+            </div>
+            <!--                                                Cost Limit                   -->
+            <div class="form-group">
+                <div *ngIf="data.limit != '' ">
+                    <label for="limit">Upper Bound on Cost</label>
+                    <div>
+                        <input type="text" readonly placeholder="{{ data.limit }}">
+                    </div>
+                </div>
+            </div>
+            <!--                                                Additional Details            -->
+            <div class="form-group">
+                <label for="details">Additional Details</label>
+                <div>
+                    <input type="text" readonly placeholder="{{ data.details }}">
+                </div>
+            </div>
+            <!--                                                 Buttons                      -->
+            <div *ngIf="!data.isProcessing && data.status == 0">
+                <button class="btn btn-primary" (click)="clickEdit()">Edit</button>
+            </div>
             <button class="btn btn-danger" (click)="clickBack()">Back</button>
-    </form>
+            <button class="btn btn-danger" (click)="clickPrint()">Print</button>
+        </form>
+    </div>
 </div>

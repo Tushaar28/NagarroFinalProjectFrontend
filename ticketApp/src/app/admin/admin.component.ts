@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule} from '@angular/common'
@@ -10,7 +11,8 @@ export class AdminComponent implements OnInit {
   error: any;
   data: any;
   i = 0;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private router: Router) { }
 
   ngOnInit(): void {
     const headers = {'Authorization': 'Bearer ' + localStorage.getItem('token'), 'id': localStorage.getItem('id'), 'Accept': 'application/json'};
@@ -26,6 +28,10 @@ export class AdminComponent implements OnInit {
         //console.log(error);
       }
     )
+  }
+
+  getId(id){
+    this.router.navigate(['/home/ticket', id])
   }
 
   approve(ticket, i){

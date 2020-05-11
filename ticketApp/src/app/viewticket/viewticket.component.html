@@ -14,7 +14,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let row of data_split;let i = index" (click)="getId(row.id)">
-            <td>{{ row.id }}</td>
+            <td>{{ i + 1 }}</td>
             <td>{{ row.type }}</td>
             <td>
                 <div *ngIf="row.priority == 3">
